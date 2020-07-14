@@ -1,482 +1,215 @@
 <%-- 
     Document   : products
-    Created on : Jul 3, 2020, 6:29:27 PM
-    Author     : Admin
+    Created on : Jul 13, 2020, 11:05:03 PM
+    Author     : HAOVNCE140475
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
-        <title>N-Air a E-commerce category Flat Bootstrap Responsive Website Template | Products :: w3layouts</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="keywords" content="N-Air Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-        <script type="application/x-javascript"> addEventListener("load", function() {setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <meta charset utf="8">
-        <!--fonts-->
-        <link href='//fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
 
-        <!--fonts-->
-        <!--form-css-->
-        <link href="css/form.css" rel="stylesheet" type="text/css" media="all" />
-        <!--bootstrap-->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <!--coustom css-->
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <!--shop-kart-js-->
-        <script src="js/simpleCart.min.js"></script>
-        <!--default-js-->
-        <script src="js/jquery-2.1.4.min.js"></script>
-        <!--bootstrap-js-->
-        <script src="js/bootstrap.min.js"></script>
-        <!--script-->
-        <!-- FlexSlider -->
-        <script src="js/imagezoom.js"></script>
-        <script defer src="js/jquery.flexslider.js"></script>
-        <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="screen" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-        <script>
-            // Can also be used with $(document).ready()
-            $(window).load(function () {
-                $('.flexslider').flexslider({
-                    animation: "slide",
-                    controlNav: "thumbnails"
-                });
-            });
-        </script>
-        <!-- //FlexSlider-->
+        <title>SB Admin - Tables</title>
+
+        <!-- Bootstrap core CSS-->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom fonts for this template-->
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+        <!-- Page level plugin CSS-->
+        <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="css/sb-admin.css" rel="stylesheet">
+
     </head>
-    <body>
-        <div class="header">
-            <div class="container">
-                <!--Header-top!-->
-                <jsp:include page="header/header-top.jsp"></jsp:include>
-                    <!--Header-top!-->     
-                    <!---menu-----bar--->
-                    <!--header-bottom-->
-                <jsp:include page="header/header-bottom.jsp"></jsp:include>
-                    <!--header-bottom-->
 
-                </div>
-            </div>
-            <div class="head-bread">
-                <div class="container">
+    <body id="page-top">
+
+        <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+            <a class="navbar-brand mr-1 fas" href="index.jsp"><h3>N-Air</h3></a>
+
+            <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navbar Search -->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+
+            </form>
+
+            <!-- Navbar -->
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown no-arrow mx-1"></li>
+                <li class="nav-item dropdown no-arrow mx-1"></li>
+
+                <!-- LOGOUT-->
+                <li class="nav-item dropdown no-arrow  ">
+                    <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <h3><i class="fas fa-user-circle fa-fw"></i></h3>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#" >Logout</a>
+                    </div>
+                </li>
+            </ul>
+
+        </nav>
+
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <ul class="sidebar navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.jsp">
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="account.jsp">
+                        <i class="fas fa-fw fa-user"></i>
+                        <span>Account</span></a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" href="order.jsp">
+                        <i class="fas fa-fw fa-book"></i>
+                        <span>Order</span></a>
+                </li>
+                <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-fw fa-box-open"></i>
+                        <span>Product</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                        <a class="dropdown-item active" href="products.jsp">List Products</a>
+                        <a class="dropdown-item" href="productInfo.jsp">List Products Information</a>
+                        <a class="dropdown-item" href="typesProduct.jsp">List Types Product</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="suppliers.jsp">
+                        <i class="fas fa-fw fa-book"></i>
+                        <span>Suppliers</span></a>
+                </li>
+                
+                <li class="nav-item ">
+                    <a class="nav-link" href="feedback.jsp">
+                        <i class="fas fa-fw fa-book"></i>
+                        <span>Feedbacks</span></a>
+                </li>
+
+
+            </ul>
+
+            <div id="content-wrapper">
+
+                <div class="container-fluid">
+
+                    <!-- Breadcrumbs-->
                     <ol class="breadcrumb">
-                        <li><a href="index.jsp">Home</a></li>
-                        <li class="active">PRODUCTS</li>
+                        <li class="breadcrumb-item">
+                            <a href="index.jsp">Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-item">Products</li>
+                        <li class="breadcrumb-item active"> Products</li>
                     </ol>
+
+                    <!-- DataTables Example -->
+                    <div class="card mb-3">
+                        <div class="card-header">
+                           <table>
+                                <tr>
+                                    <td><i class="fas"></i>List Products</td>
+                                    <td style="padding:0px 0px 0px 100px"><a  class="btn btn-primary" href="insertProduct.jsp">+ Add New</a></td>
+                                </tr> 
+                            </table>  
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Product ID</th>
+                                            <th>Product's Name</th>
+                                            <th>Discount</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Supplier</th>
+                                            <th>Type ID</th>
+                                            <th>Logo</th>
+                                            <th>Quantity imported</th>
+                                            <th>Quantity sold</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>                  
+                                        <tr>
+                                            <td>Michael Bruce</td>
+                                            <td>Javascript Developer</td>
+                                            <td>Singapore</td>
+                                            <td>29</td>
+                                            <td>2011/06/27</td>
+                                            <td>$183,000</td>
+                                            <td>Donna Snider</td>
+                                            <td>Customer Support</td>
+                                            <td>New York</td>
+                                            <td>27</td>
+                                            
+                                            <td>
+                                                <a class="nav-link" href="updateProduct.jsp"><i class="fas fa-fw fa-pen"></i></a>
+                                                <a class="nav-link" href="#"><i class="fas fa-fw fa-trash"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="products-gallery">
-                <div class="container">
-                    <div class="col-md-9 grid-gallery">
-                        <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                            <!-- normal -->
-                            <div class="ih-item square effect3 bottom_to_top">
-                                <div class="bottom-2-top">
-                                    <div class="img"><img src="images/grid4.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                    <div class="info">
-                                        <div class="pull-left styl-hdn">
-                                            <h3>style 01</h3>
-                                        </div>
-                                        <div class="pull-right styl-price">
-                                            <p><a  href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div></div>
-                            </div>
-                            <!-- end normal -->
-                            <div class="quick-view">
-                                <a href="single.jsp">Quick view</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                            <!-- normal -->
-                            <div class="ih-item square effect3 bottom_to_top">
-                                <div class="bottom-2-top">
-                                    <div class="img"><img src="images/grid6.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                    <div class="info">
-                                        <div class="pull-left styl-hdn">
-                                            <h3>style 01</h3>
-                                        </div>
-                                        <div class="pull-right styl-price">
-                                            <p><a  href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div></div>
-                            </div>
-                            <!-- end normal -->
-                            <div class="quick-view">
-                                <a href="single.jsp">Quick view</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                            <!-- normal -->
-                            <div class="ih-item square effect3 bottom_to_top">
-                                <div class="bottom-2-top">
-                                    <div class="img"><img src="images/grid3.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                    <div class="info">
-                                        <div class="pull-left styl-hdn">
-                                            <h3>style 01</h3>
-                                        </div>
-                                        <div class="pull-right styl-price">
-                                            <p><a  href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div></div>
-                            </div>
-                            <!-- end normal -->
-                            <div class="quick-view">
-                                <a href="single.jsp">Quick view</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                            <!-- normal -->
-                            <div class="ih-item square effect3 bottom_to_top">
-                                <div class="bottom-2-top">
-                                    <div class="img"><img src="images/grid5.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                    <div class="info">
-                                        <div class="pull-left styl-hdn">
-                                            <h3>style 01</h3>
-                                        </div>
-                                        <div class="pull-right styl-price">
-                                            <p><a  href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div></div>
-                            </div>
-                            <!-- end normal -->
-                            <div class="quick-view">
-                                <a href="single.jsp">Quick view</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                            <!-- normal -->
-                            <div class="ih-item square effect3 bottom_to_top">
-                                <div class="bottom-2-top">
-                                    <div class="img"><img src="images/grid7.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                    <div class="info">
-                                        <div class="pull-left styl-hdn">
-                                            <h3>style 01</h3>
-                                        </div>
-                                        <div class="pull-right styl-price">
-                                            <p><a  href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div></div>
-                            </div>
-                            <!-- end normal -->
-                            <div class="quick-view">
-                                <a href="single.jsp">Quick view</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                            <!-- normal -->
-                            <div class="ih-item square effect3 bottom_to_top">
-                                <div class="bottom-2-top">
-                                    <div class="img"><img src="images/grid8.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                    <div class="info">
-                                        <div class="pull-left styl-hdn">
-                                            <h3>style 01</h3>
-                                        </div>
-                                        <div class="pull-right styl-price">
-                                            <p><a  href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div></div>
-                            </div>
-                            <!-- end normal -->
-                            <div class="quick-view">
-                                <a href="single.jsp">Quick view</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                            <!-- normal -->
-                            <div class="ih-item square effect3 bottom_to_top">
-                                <div class="bottom-2-top">
-                                    <div class="img"><img src="images/grid9.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                    <div class="info">
-                                        <div class="pull-left styl-hdn">
-                                            <h3>style 01</h3>
-                                        </div>
-                                        <div class="pull-right styl-price">
-                                            <p><a  href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div></div>
-                            </div>
-                            <!-- end normal -->
-                            <div class="quick-view">
-                                <a href="single.jsp">Quick view</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                            <!-- normal -->
-                            <div class="ih-item square effect3 bottom_to_top">
-                                <div class="bottom-2-top">
-                                    <div class="img"><img src="images/grid10.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                    <div class="info">
-                                        <div class="pull-left styl-hdn">
-                                            <h3>style 01</h3>
-                                        </div>
-                                        <div class="pull-right styl-price">
-                                            <p><a  href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div></div>
-                            </div>
-                            <!-- end normal -->
-                            <div class="quick-view">
-                                <a href="single.jsp">Quick view</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                            <!-- normal -->
-                            <div class="ih-item square effect3 bottom_to_top">
-                                <div class="bottom-2-top">
-                                    <div class="img"><img src="images/grid11.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                    <div class="info">
-                                        <div class="pull-left styl-hdn">
-                                            <h3>style 01</h3>
-                                        </div>
-                                        <div class="pull-right styl-price">
-                                            <p><a  href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div></div>
-                            </div>
-                            <!-- end normal -->
-                            <div class="quick-view">
-                                <a href="single.jsp">Quick view</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                            <!-- normal -->
-                            <div class="ih-item square effect3 bottom_to_top">
-                                <div class="bottom-2-top">
-                                    <div class="img"><img src="images/grid12.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                    <div class="info">
-                                        <div class="pull-left styl-hdn">
-                                            <h3>style 01</h3>
-                                        </div>
-                                        <div class="pull-right styl-price">
-                                            <p><a  href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div></div>
-                            </div>
-                            <!-- end normal -->
-                            <div class="quick-view">
-                                <a href="single.jsp">Quick view</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                            <!-- normal -->
-                            <div class="ih-item square effect3 bottom_to_top">
-                                <div class="bottom-2-top">
-                                    <div class="img"><img src="images/grid13.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                    <div class="info">
-                                        <div class="pull-left styl-hdn">
-                                            <h3>style 01</h3>
-                                        </div>
-                                        <div class="pull-right styl-price">
-                                            <p><a  href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div></div>
-                            </div>
-                            <!-- end normal -->
-                            <div class="quick-view">
-                                <a href="single.jsp">Quick view</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4 grid-stn simpleCart_shelfItem">
-                            <!-- normal -->
-                            <div class="ih-item square effect3 bottom_to_top">
-                                <div class="bottom-2-top">
-                                    <div class="img"><img src="images/grid14.jpg" alt="/" class="img-responsive gri-wid"></div>
-                                    <div class="info">
-                                        <div class="pull-left styl-hdn">
-                                            <h3>style 01</h3>
-                                        </div>
-                                        <div class="pull-right styl-price">
-                                            <p><a  href="#" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$190</span></a></p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div></div>
-                            </div>
-                            <!-- end normal -->
-                            <div class="quick-view">
-                                <a href="single.jsp">Quick view</a>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <div class="col-md-3 grid-details">
-                        <div class="grid-addon">
-                            <section  class="sky-form">
-                                <div class="product_right">
-                                    <h4 class="m_2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Categories</h4>
-                                    <div class="tab1">
-                                        <ul class="place">								
-                                            <li class="sort">Shoes</li>
-                                            <li class="by"><img src="images/do.png" alt=""></li>
-                                            <div class="clearfix"> </div>
-                                        </ul>
-                                        <div class="single-bottom">						
-                                            <a href="#"><p>Running</p></a>
-                                            <a href="#"><p>Foot ball</p></a>
-                                            <a href="#"><p>Daily</p></a>
-                                            <a href="#"><p>Sneakers</p></a>
-                                        </div>
-                                    </div>						  
-                                    <div class="tab2">
-                                        <ul class="place">								
-                                            <li class="sort">Clothing</li>
-                                            <li class="by"><img src="images/do.png" alt=""></li>
-                                            <div class="clearfix"> </div>
-                                        </ul>
-                                        <div class="single-bottom">						
-                                            <a href="#"><p>Tracks</p></a>
-                                            <a href="#"><p>Tees</p></a>
-                                            <a href="#"><p>Hair bands</p></a>
-                                            <a href="#"><p>Wrist bands</p></a>
-                                        </div>
-                                    </div>
-                                    <div class="tab3">
-                                        <ul class="place">								
-                                            <li class="sort">Gear</li>
-                                            <li class="by"><img src="images/do.png" alt=""></li>
-                                            <div class="clearfix"> </div>
-                                        </ul>
-                                        <div class="single-bottom">						
-                                            <a href="#"><p>Running app</p></a>
-                                            <a href="#"><p>Training club</p></a>
-                                            <a href="#"><p>Nike Fuel+Band se</p></a>
-                                        </div>
-                                    </div>						  
-                                    <!--script-->
-                                    <script>
-                                        $(document).ready(function () {
-                                            $(".tab1 .single-bottom").hide();
-                                            $(".tab2 .single-bottom").hide();
-                                            $(".tab3 .single-bottom").hide();
-                                            $(".tab4 .single-bottom").hide();
-                                            $(".tab5 .single-bottom").hide();
 
-                                            $(".tab1 ul").click(function () {
-                                                $(".tab1 .single-bottom").slideToggle(300);
-                                                $(".tab2 .single-bottom").hide();
-                                                $(".tab3 .single-bottom").hide();
-                                                $(".tab4 .single-bottom").hide();
-                                                $(".tab5 .single-bottom").hide();
-                                            })
-                                            $(".tab2 ul").click(function () {
-                                                $(".tab2 .single-bottom").slideToggle(300);
-                                                $(".tab1 .single-bottom").hide();
-                                                $(".tab3 .single-bottom").hide();
-                                                $(".tab4 .single-bottom").hide();
-                                                $(".tab5 .single-bottom").hide();
-                                            })
-                                            $(".tab3 ul").click(function () {
-                                                $(".tab3 .single-bottom").slideToggle(300);
-                                                $(".tab4 .single-bottom").hide();
-                                                $(".tab5 .single-bottom").hide();
-                                                $(".tab2 .single-bottom").hide();
-                                                $(".tab1 .single-bottom").hide();
-                                            })
-                                            $(".tab4 ul").click(function () {
-                                                $(".tab4 .single-bottom").slideToggle(300);
-                                                $(".tab5 .single-bottom").hide();
-                                                $(".tab3 .single-bottom").hide();
-                                                $(".tab2 .single-bottom").hide();
-                                                $(".tab1 .single-bottom").hide();
-                                            })
-                                            $(".tab5 ul").click(function () {
-                                                $(".tab5 .single-bottom").slideToggle(300);
-                                                $(".tab4 .single-bottom").hide();
-                                                $(".tab3 .single-bottom").hide();
-                                                $(".tab2 .single-bottom").hide();
-                                                $(".tab1 .single-bottom").hide();
-                                            })
-                                        });
-                                    </script>
-                                    <!-- script -->					 
-                            </section>
-                            <section  class="sky-form">
-                                <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>DISCOUNTS</h4>
-                                <div class="row row1 scroll-pane">
-                                    <div class="col col-4">
-                                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Upto - 10% (20)</label>
-                                    </div>
-                                    <div class="col col-4">
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>40% - 50% (5)</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>30% - 20% (7)</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>10% - 5% (2)</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Other(50)</label>
-                                    </div>
-                                </div>
-                            </section> 				 
-                            <!---->
-                            <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
-                            <script type='text/javascript'>//<![CDATA[ 
-                                $(window).load(function () {
-                                    $("#slider-range").slider({
-                                        range: true,
-                                        min: 0,
-                                        max: 400000,
-                                        values: [2500, 350000],
-                                        slide: function (event, ui) {
-                                            $("#amount").val("$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ]);
-                                        }
-                                    });
-                                    $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+        </div>
+        <!-- /#wrapper -->
 
-                                });//]]>  
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-                            </script>
-                            <section  class="sky-form">
-                                <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Type</h4>
-                                <div class="row row1 scroll-pane">
-                                    <div class="col col-4">
-                                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Air Max (30)</label>
-                                    </div>
-                                    <div class="col col-4">
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Armagadon   (30)</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Helium (30)</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Kyron     (30)</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Napolean  (30)</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Foot Rock   (30)</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Radiated  (30)</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Spiked  (30)</label>
-                                    </div>
-                                </div>
-                            </section>
-                            <section  class="sky-form">
-                                <h4><span class="glyphicon glyphicon-minus" aria-hidden="true"></span>Brand</h4>
-                                <div class="row row1 scroll-pane">
-                                    <div class="col col-4">
-                                        <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i></i>Roadstar</label>
-                                    </div>
-                                    <div class="col col-4">
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Tornado</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Kissan</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Oakley</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Manga</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox" ><i></i>Wega</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Kings</label>
-                                        <label class="checkbox"><input type="checkbox" name="checkbox"><i></i>Zumba</label>
-                                    </div>
-                                </div>
-                            </section>		
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div> 
-            </div>
-            <!--footer!-->
-        <jsp:include page="footer/footerlevel1.jsp"></jsp:include>
-        <!--footer!-->
+
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Page level plugin JavaScript-->
+        <script src="vendor/datatables/jquery.dataTables.js"></script>
+        <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin.min.js"></script>
+
+        <!-- Demo scripts for this page-->
+        <script src="js/demo/datatables-demo.js"></script>
+
     </body>
+
 </html>
+
+

@@ -35,7 +35,7 @@
     <body id="page-top">
 
         <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-            <a class="navbar-brand mr-1 fas" href="indexadmin.jsp"><h3>N-Air</h3></a>
+            <a class="navbar-brand mr-1 fas" href="index.jsp"><h3>N-Air</h3></a>
 
             <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
                 <i class="fas fa-bars"></i>
@@ -69,7 +69,7 @@
             <!-- Sidebar -->
             <ul class="sidebar navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="indexadmin.jsp">
+                    <a class="nav-link" href="index.jsp">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -120,7 +120,7 @@
                     <!-- Breadcrumbs-->
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="indexadmin.jsp">Dashboard</a>
+                            <a href="index.jsp">Dashboard</a>
                         </li>
                         <li class="breadcrumb-item active">Orders</li>
 
@@ -129,8 +129,8 @@
                     <!-- DataTables Example -->
                     <div class="card mb-3">
                         <div class="card-header">
-                            <i class="fas fa-user"></i>
-                            List Orders</div>
+                           <i class="fas"></i>List Orders
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -148,20 +148,7 @@
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Order ID</th>
-                                            <th>Customer's Name</th>
-                                            <th>List of Products</th>
-                                            <th>Total Money</th>
-                                            <th>Date</th>
-                                            <th>Address</th>
-                                            <th>Phone Number</th>
-                                            <th>Email</th>
-                                            <th>Status of Product</th>
-                                            <th></th>
-                                        </tr>
-                                    </tfoot>
+                                    
                                     <tbody>                  
                                         <tr>
                                             <td>Michael Bruce</td>

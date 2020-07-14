@@ -35,7 +35,7 @@
     <body id="page-top">
 
         <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
-            <a class="navbar-brand mr-1 fas" href="indexadmin.jsp"><h3>N-Air</h3></a>
+            <a class="navbar-brand mr-1 fas" href="index.jsp"><h3>N-Air</h3></a>
 
             <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
                 <i class="fas fa-bars"></i>
@@ -69,7 +69,7 @@
             <!-- Sidebar -->
             <ul class="sidebar navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="indexadmin.jsp">
+                    <a class="nav-link" href="index.jsp">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
@@ -120,7 +120,7 @@
                     <!-- Breadcrumbs-->
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="indexadmin.jsp">Dashboard</a>
+                            <a href="index.jsp">Dashboard</a>
                         </li>
                         <li class="breadcrumb-item ">Products</li>
                         <li class="breadcrumb-item active">Product Information</li>
@@ -128,9 +128,15 @@
 
                     <!-- DataTables Example -->
                     <div class="card mb-3">
-                        <div class="card-header">
-                            <i class="fas fa-user"></i>
-                            List Product Informations</div>
+                       <div class="card-header">
+                           <table>
+                                <tr>
+                                    <td><i class="fas"></i>List Product Informations</td>
+                                    <td style="padding:0px 0px 0px 100px"><a  class="btn btn-primary" href="insertProductInfo.jsp">+ Add New</a></td>
+                                </tr> 
+                            </table>  
+                        </div>
+                    </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -142,14 +148,7 @@
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Product ID</th>
-                                            <th>Description</th>
-                                            <th>Logo</th>
-                                            <th></th>
-                                        </tr>
-                                    </tfoot>
+                                    
                                     <tbody>                  
                                         <tr>
                                             <td>Michael Bruce</td>
