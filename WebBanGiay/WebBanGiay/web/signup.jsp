@@ -1,14 +1,20 @@
 <%-- 
-    Document   : contact
-    Created on : Jul 3, 2020, 6:28:45 PM
+    Document   : signup
+    Created on : Jul 3, 2020, 6:30:30 PM
     Author     : Admin
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>N-Air a E-commerce category Flat Bootstrap Responsive Website Template | Contact :: w3layouts</title>
+        <title>N-Air a E-commerce category Flat Bootstrap Responsive Website Template | Checkout :: w3layouts</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="keywords" content="N-Air Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
@@ -55,48 +61,47 @@
                     <!--header-bottom-->
                 <jsp:include page="header/header-bottom.jsp"></jsp:include>
                     <!--header-bottom-->
-
                 </div>
             </div>
             <div class="head-bread">
                 <div class="container">
                     <ol class="breadcrumb">
-                        <li><a href="index.jsp">Home</a></li>
-                        <li class="active">Contact</li>
+                        <li><a href="index.jsp">HOME</a></li>
+                        <li class="active">LOGIN</li>
                     </ol>
                 </div>
             </div>
-            <!-- contact -->
-            <div class="contact">
+            <!--signup-->
+            <!-- login-page -->
+            <div class="login">
                 <div class="container">
-                    <h3>Catch us</h3>
-                    <div class="contact-content">
-                        <form action="ContactController" method="post">
-                             <input type="text" class="textbox" name="title" value=" Your Title" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                        this.value = 'Your Title';
-                                    }"><br>
-                            <input type="text" class="textbox" name="name" value=" Your Name" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                        this.value = 'Your Name';
-                                    }"><br>
-                            <input type="text" class="textbox" name="email" value="Your E-Mail" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                        this.value = 'Your E-Mail';
-                                    }"><br>
-                            <div class="clear"> </div>
-                            <div>
-                                <textarea value="Message:" name="message" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                            this.value = 'Your Message ';
-                                        }">Your Message</textarea><br>
-                            </div>	
-                            <div class="submit"> 
-                                <input class="btn btn-default cont-btn" type="submit" value="SEND " />
-                            </div>
-                        </form>
-                        <div class="map">
-                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.8838496075136!2d105.7552704146158!3d10.026442692833065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a08830e54e5f25%3A0xd7d159025caa8609!2zxJDGsOG7nW5nIE5ndXnhu4VuIFbEg24gTGluaCwgS2h1IGTDom4gY8awIDkxQiwgQW4gS2jDoW5oLCBOaW5oIEtp4buBdSwgQ-G6p24gVGjGoSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1594110289327!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    <div class="login-grids">
+                        <div class="col-md-6 log">
+                            <h3>Login</h3>
+                            <div class="strip"></div>
+                            <p>Welcome, please enter the following to continue.</p>
+                            <p>If you have previously Login with us, <a href="#">Click Here</a></p>
+                            <form action="LoginController?action=Login" method="post">
+                                <h5>User Name:</h5>	
+                                <input type="text" name="username" value="">
+                                <h5>Password:</h5>
+                                <input type="password" name="password" value=""><br>					
+                                <input type="submit" value="Login">
+                            </form>
+                            <a href="#">Forgot Password ?</a>
                         </div>
+                        <div class="col-md-6 login-right">
+                            <h3>New Registration</h3>
+                            <div class="strip"></div>
+                            <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+                            <a href="register.jsp" class="button">Create An Account</a>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
             </div>
+            <!--login-page-->
+            <!--sign up-->
             <!--footer!-->
         <jsp:include page="footer/footerlevel1.jsp"></jsp:include>
         <!--footer!-->

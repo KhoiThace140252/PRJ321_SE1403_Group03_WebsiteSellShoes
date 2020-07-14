@@ -33,7 +33,36 @@
     </head>
 
     <body id="page-top">
-        <jsp:include page="header-admin/header-top.jsp"></jsp:include>
+
+        <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+            <a class="navbar-brand mr-1 fas" href="indexadmin.jsp"><h3>N-Air</h3></a>
+
+            <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navbar Search -->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+
+            </form>
+
+            <!-- Navbar -->
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown no-arrow mx-1"></li>
+                <li class="nav-item dropdown no-arrow mx-1"></li>
+
+                <!-- LOGOUT-->
+                <li class="nav-item dropdown no-arrow  ">
+                    <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <h3><i class="fas fa-user-circle fa-fw"></i></h3>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#" >Logout</a>
+                    </div>
+                </li>
+            </ul>
+
+        </nav>
 
         <div id="wrapper">
 
@@ -63,7 +92,7 @@
                         <span>Product</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                        <a class="dropdown-item" href="productsadmin.jsp">List Products</a>
+                        <a class="dropdown-item" href="products.jsp">List Products</a>
                         <a class="dropdown-item " href="productInfo.jsp">List Products Information</a>
                         <a class="dropdown-item" href="typesProduct.jsp">List Types Product</a>
                     </div>
@@ -74,7 +103,7 @@
                         <i class="fas fa-fw fa-book"></i>
                         <span>Suppliers</span></a>
                 </li>
-
+                
                 <li class="nav-item ">
                     <a class="nav-link" href="feedback.jsp">
                         <i class="fas fa-fw fa-book"></i>
@@ -89,133 +118,133 @@
                 <div class="container-fluid">
 
                     <!-- Breadcrumbs-->
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item">
-                            <a href="#">Dashboard</a>
-                        </li>
-                        <li class="breadcrumb-item active">Overview</li>
-                    </ol>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Overview</li>
+          </ol>
 
-                    <!-- Icon Cards-->
-                    <div class="row">
-                        <div class="col-xl-3 col-sm-6 mb-3">
-                            <div class="card text-white bg-primary o-hidden h-100">
-                                <div class="card-body">
-                                    <div class="card-body-icon">
-                                        <i class="fas fa-fw fa-user"></i>
-                                    </div>
-                                    <div class="mr-5"><h2>Accounts</h2></div>
-                                </div>
-                                <a class="card-footer text-white clearfix small z-1" href="account.jsp">
-                                    <span class="float-left">View Details</span>
-                                    <span class="float-right">
-                                        <i class="fas fa-angle-right"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 mb-3">
-                            <div class="card text-white bg-warning o-hidden h-100">
-                                <div class="card-body">
-                                    <div class="card-body-icon">
-                                        <i class="fas fa-fw fa-paper-plane"></i>
-                                    </div>
-                                    <div class="mr-5"><h2>Orders</h2></div>
-                                </div>
-                                <a class="card-footer text-white clearfix small z-1" href="order.jsp">
-                                    <span class="float-left">View Details</span>
-                                    <span class="float-right">
-                                        <i class="fas fa-angle-right"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 mb-3">
-                            <div class="card text-white bg-success o-hidden h-100">
-                                <div class="card-body">
-                                    <div class="card-body-icon">
-                                        <i class="fas fa-fw fa-shopping-cart"></i>
-                                    </div>
-                                    <div class="mr-5"><h2>Products</h2></div>
-                                </div>
-                                <a class="card-footer text-white clearfix small z-1" href="productsadmin.jsp">
-                                    <span class="float-left">View Details</span>
-                                    <span class="float-right">
-                                        <i class="fas fa-angle-right"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-xl-3 col-sm-6 mb-3">
-                            <div class="card text-white bg-danger o-hidden h-100">
-                                <div class="card-body">
-                                    <div class="card-body-icon">
-                                        <i class="fas fa-fw fa-box"></i>
-                                    </div>
-                                    <div class="mr-5"><h2>Suppliers</h2></div>
-                                </div>
-                                <a class="card-footer text-white clearfix small z-1" href="suppliers.jsp">
-                                    <span class="float-left">View Details</span>
-                                    <span class="float-right">
-                                        <i class="fas fa-angle-right"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-sm-6 mb-3">
-                            <div class="card text-white bg-dark o-hidden h-100">
-                                <div class="card-body">
-                                    <div class="card-body-icon">
-                                        <i class="fas fa-fw fa-comments"></i>
-                                    </div>
-                                    <div class="mr-5"><h2>Feedbacks</h2></div>
-                                </div>
-                                <a class="card-footer text-white clearfix small z-1" href="feedback.jsp">
-                                    <span class="float-left">View Details</span>
-                                    <span class="float-right">
-                                        <i class="fas fa-angle-right"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-
+          <!-- Icon Cards-->
+          <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-primary o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-user"></i>
+                  </div>
+                    <div class="mr-5"><h2>Accounts</h2></div>
                 </div>
-                <!-- /#wrapper -->
-
-                <!-- Scroll to Top Button-->
-                <a class="scroll-to-top rounded" href="#page-top">
-                    <i class="fas fa-angle-up"></i>
+                <a class="card-footer text-white clearfix small z-1" href="account.jsp">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
                 </a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-warning o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-paper-plane"></i>
+                  </div>
+                  <div class="mr-5"><h2>Orders</h2></div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="order.jsp">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-success o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-shopping-cart"></i>
+                  </div>
+                  <div class="mr-5"><h2>Products</h2></div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="products.jsp">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+              
+           
+          </div>
+          
+          
+          <div class="row">
+               <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-danger o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-box"></i>
+                  </div>
+                  <div class="mr-5"><h2>Suppliers</h2></div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="suppliers.jsp">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+               <div class="col-xl-3 col-sm-6 mb-3">
+              <div class="card text-white bg-dark o-hidden h-100">
+                <div class="card-body">
+                  <div class="card-body-icon">
+                    <i class="fas fa-fw fa-comments"></i>
+                  </div>
+                  <div class="mr-5"><h2>Feedbacks</h2></div>
+                </div>
+                <a class="card-footer text-white clearfix small z-1" href="feedback.jsp">
+                  <span class="float-left">View Details</span>
+                  <span class="float-right">
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
 
+          
+    </div>
+    <!-- /#wrapper -->
 
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
 
-                <!-- Bootstrap core JavaScript-->
-                <script src="vendor/jquery/jquery.min.js"></script>
-                <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
 
-                <!-- Core plugin JavaScript-->
-                <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-                <!-- Page level plugin JavaScript-->
-                <script src="vendor/chart.js/Chart.min.js"></script>
-                <script src="vendor/datatables/jquery.dataTables.js"></script>
-                <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-                <!-- Custom scripts for all pages-->
-                <script src="js/sb-admin.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
-                <!-- Demo scripts for this page-->
-                <script src="js/demo/datatables-demo.js"></script>
-                <script src="js/demo/chart-area-demo.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin.min.js"></script>
 
-                </body>
+    <!-- Demo scripts for this page-->
+    <script src="js/demo/datatables-demo.js"></script>
+    <script src="js/demo/chart-area-demo.js"></script>
 
-                </html>
+  </body>
+
+</html>

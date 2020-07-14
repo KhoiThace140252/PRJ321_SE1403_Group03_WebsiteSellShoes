@@ -62,7 +62,7 @@
                         }
                         SanPhamDAO spDao = new SanPhamDAO();
                         Map<String, SanPham> map = new HashMap<>();
-                        map = spDao.layDuLieuTuDatabase();
+                        map = spDao.layDuLieuTuDatabase();                   
                     %>
                 </a>
                 <a class="btn btn-default log-bar" href="LoginController?action=Logout" role="button">Logout</a>
@@ -121,7 +121,7 @@
                 </div>
                 <input type="submit" name="insert" value="INSERT">
                 <input type="submit" value="UPDATE">
-
+               
             </form>
         </div>
     </body>

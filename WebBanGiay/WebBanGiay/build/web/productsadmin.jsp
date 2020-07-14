@@ -1,5 +1,5 @@
 <%-- 
-    Document   : productsadmin
+    Document   : products
     Created on : Jul 13, 2020, 11:05:03 PM
     Author     : HAOVNCE140475
 --%>
@@ -34,7 +34,35 @@
 
     <body id="page-top">
 
-      <jsp:include page="header-admin/header-top.jsp"></jsp:include>
+        <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+            <a class="navbar-brand mr-1 fas" href="indexadmin.jsp"><h3>N-Air</h3></a>
+
+            <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navbar Search -->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+
+            </form>
+
+            <!-- Navbar -->
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown no-arrow mx-1"></li>
+                <li class="nav-item dropdown no-arrow mx-1"></li>
+
+                <!-- LOGOUT-->
+                <li class="nav-item dropdown no-arrow  ">
+                    <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <h3><i class="fas fa-user-circle fa-fw"></i></h3>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#" >Logout</a>
+                    </div>
+                </li>
+            </ul>
+
+        </nav>
 
         <div id="wrapper">
 
@@ -64,7 +92,7 @@
                         <span>Product</span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                        <a class="dropdown-item active" href="productInfo.jsp">List Products</a>
+                        <a class="dropdown-item active" href="products.jsp">List Products</a>
                         <a class="dropdown-item" href="productInfo.jsp">List Products Information</a>
                         <a class="dropdown-item" href="typesProduct.jsp">List Types Product</a>
                     </div>
