@@ -49,14 +49,14 @@
                 </div>
             </div>
         <%
-            String buySuccess = request.getParameter("buySuccess");
-            if (buySuccess != null) {
-                if (buySuccess.equals("true")) {
-                    out.print("<script>alert('Purchase Successful')</script>");
-                    out.print("<script>location.href='/WebBanGiay/index.jsp'</script>");
-                } else {
-                    out.print("<script>alert('Purchase Failed')</script>");
-                    out.print("<script>location.href='/WebBanGiay/index.jsp'</script>");
+            String buySuccess = request.getParameter("buySuccess");//tao mot bien string kiem tra xem nguoi dung mua hang thanh cong hay that bai
+            if (buySuccess != null) {//neu nhu gia tri string khac null
+                if (buySuccess.equals("true")) {//neu mua thanh cong
+                    out.print("<script>alert('Purchase Successful')</script>");//thong bao mua thanh cong
+                    out.print("<script>location.href='/WebBanGiay/index.jsp'</script>");//load lai trang chu
+                } else {//neu mua that bai
+                    out.print("<script>alert('Purchase Failed')</script>");//thong bao mua that bai
+                    out.print("<script>location.href='/WebBanGiay/index.jsp'</script>");//load lai trang chu
                 }
             }
         %>
@@ -135,13 +135,13 @@
         <div class="col-xs-12 shop-grid">
             <div class="container">
                 <%
-                    Map<String, SanPham> map = new SanPhamDAO().getTinhTrangSanPham();;
-                    Collection<SanPham> values = map.values();
-                    int i = 0;
-                    for (SanPham row : values) {
-                        i++;
-                        if (i > 6) {
-                            break;
+                    Map<String, SanPham> map = new SanPhamDAO().getTinhTrangSanPham();//tao mot map luu cac san pham co tinh trang la san sang
+                    Collection<SanPham> values = map.values();//lay gia tri trong map
+                    int i = 0;//khai bao bien i
+                    for (SanPham row : values) {//vong lap in cac gia tri trong map ra view
+                        i++;//tang i
+                        if (i > 6) {//in ra toi da 6 san pham thi dung lai
+                            break;//thoat
                         }
 
                 %>
@@ -151,12 +151,13 @@
                     <!-- normal -->
                     <div class="ih-item square effect3 bottom_to_top">
                         <div class="bottom-2-top">
-                            <div class="img"><img src="<%=row.getHinhAnh()%>" alt="" class="img-responsive gri-wid"></div>
+                            <div class="img"><img src="<%=row.getHinhAnh()%>" alt="" class="img-responsive gri-wid"></div> <!--In Hinh anh-->
                             <div class="info">
                                 <div class="pull-left styl-hdn">
-                                    <h3><%=row.getTenSanPham()%></h3>
+                                    <h3><%=row.getTenSanPham()%></h3> <!--In ten san pham-->
                                 </div>
                                 <div class="pull-right styl-price">
+                                     <!--Truyen qua ben mua hang de luu san pham vao gio hang-->
                                     <p><a  href="CartController?idsanpham=<%=row.getMaSanPham()%>&BuyQuantity=1" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$<%=row.getGiaTien()%></span></a></p>
                                 </div>
                                 <div class="clearfix"></div>
@@ -165,6 +166,7 @@
                     </div>
                     <!-- end normal -->
                     <div class="quick-view">
+                         <!--Truyen qua ben show chi tiet san pham-->
                         <a href="ShowProductController?iddetailproduct=<%= row.getMaSanPham()%>">Quick view</a>
                     </div>
                 </div>

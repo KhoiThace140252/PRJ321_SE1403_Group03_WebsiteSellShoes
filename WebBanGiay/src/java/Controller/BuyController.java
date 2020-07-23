@@ -42,13 +42,13 @@ public class BuyController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Cookie[] list = request.getCookies();
-        if (list.length <= 1) {
-            response.sendRedirect("signup.jsp");
-        } else {
-            String total_buy = request.getParameter("total");
-            RequestDispatcher buytotal = request.getRequestDispatcher("buy.jsp");
-            buytotal.forward(request, response);
+        Cookie[] list = request.getCookies();//lay danh sach cookie
+        if (list.length <= 1) {//neu nguoi dung chua dang nhap
+            response.sendRedirect("signup.jsp");//chuyen huong den trang dang nhap
+        } else {//neu nguoi dung da dang nhap
+            String total_buy = request.getParameter("total");//lay tong tien 
+            RequestDispatcher buytotal = request.getRequestDispatcher("buy.jsp");//chuyen huong den trang buy.jsp xac nhan thong tin
+            buytotal.forward(request, response);//thuc hien chuyen huong
         }
     }
 
@@ -78,52 +78,51 @@ public class BuyController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("btnBuy") != null) {
-            HashMap<String, Integer> BuyProducts = new HashMap<String, Integer>();
-            HttpSession session = request.getSession();
-            if (session.getAttribute("listCart") != null) {
-                BuyProducts = (HashMap<String, Integer>) session.getAttribute("listCart");
-                String Userbuy = request.getParameter("NameBuy");
-                String Useraddress = request.getParameter("AddressBuy");
-                String Userphone = request.getParameter("PhoneBuy");
-                String Useremail = request.getParameter("EmailBuy");
-                SanPham sp = null;
-                String total_buy = request.getParameter("TotalBuy");
-                int quantity = 0;
-                int totalExport = 0;
-                String listName = "";
-                String listId = "";
-                for (String i : BuyProducts.keySet()) {
-                    quantity = quantity + BuyProducts.get(i);
-                    totalExport = totalExport + BuyProducts.get(i);
-                    sp = new SanPhamDAO().getProductByID(i);
-                    listName = listName + " " + sp.getTenSanPham();
+        if (request.getParameter("btnBuy") != null) {//neu nguoi dung quyet dinh mua san pham (cho vao gio hang)
+            HashMap<String, Integer> BuyProducts = new HashMap<String, Integer>();//tao mot hashmap 
+            HttpSession session = request.getSession();//tao session
+            if (session.getAttribute("listCart") != null) {//neu gio hang khac null
+                BuyProducts = (HashMap<String, Integer>) session.getAttribute("listCart");//lay thong tin luu vao hashmap voi ten BuyProducts
+                String Userbuy = request.getParameter("NameBuy");//ten nguoi mua
+                String Useraddress = request.getParameter("AddressBuy");//dia chi nguoi mua
+                String Userphone = request.getParameter("PhoneBuy");//so dien thoai nguoi mua
+                String Useremail = request.getParameter("EmailBuy");//email nguoi mua
+                SanPham sp = null;//tao object sp
+                String total_buy = request.getParameter("TotalBuy");//tong tien can thanh toan
+                int quantity = 0;//so luong san pham
+                int totalExport = 0;//so luong san pham ban
+                String listName = "";//ten cac san pham
+                for (String i : BuyProducts.keySet()) {//vong lap lay cac key
+                    quantity = quantity + BuyProducts.get(i);//so luong san pham = so luong san pham + so luong mua
+                    totalExport = totalExport + BuyProducts.get(i);//so luong ban = so luong ban + so luong mua
+                    sp = new SanPhamDAO().getProductByID(i);//get san pham
+                    listName = listName + " " + sp.getTenSanPham();//luu ten cac san pham nguoi dung da mua
                     //giam so luong san pham sau khi mua            
-                    SanPham spUpdate = new SanPhamDAO().getProductByID(i);
-                    int amount = Integer.parseInt(spUpdate.getSoLuong()) - quantity;
-                    int Export = Integer.parseInt(spUpdate.getSoLuongBan()) + quantity;
-                    new SanPhamDAO().updateQuantity(String.valueOf(amount), String.valueOf(Export), i);
-                    quantity = 0;
-                    amount = 0;
-                    Export = 0;
+                    SanPham spUpdate = new SanPhamDAO().getProductByID(i);//get san pham
+                    int amount = Integer.parseInt(spUpdate.getSoLuong()) - quantity;//so luong con lai cua 1 san pham
+                    int Export = Integer.parseInt(spUpdate.getSoLuongBan()) + quantity;//so luong ban cua 1 san pham
+                    new SanPhamDAO().updateQuantity(String.valueOf(amount), String.valueOf(Export), i);//update so luong va so luong ban ben bang san pham
+                    quantity = 0;//dat gia tri ve lai ban dau
+                    amount = 0;//dat gia tri ve lai ban dau
+                    Export = 0;//dat gia tri ve lai ban dau
                 }
-                DonHang dh = new DonHang("1", Userbuy, listName, String.valueOf(totalExport), total_buy, null, Useraddress, Userphone, Useremail, "Already");
-                boolean checkAddBill = new DonHangDAO().add(dh);
+                DonHang dh = new DonHang("1", Userbuy, listName, String.valueOf(totalExport), total_buy, null, Useraddress, Userphone, Useremail, "Already");//luu don hang
+                boolean checkAddBill = new DonHangDAO().add(dh);//luu don hang 
                 Cookie[] cookies = request.getCookies();
-                KhachHang kh = new KhachHang();
-                if (cookies.length > 1) {
-                    for (Cookie cookie : cookies) {
-                        if (cookie.getName().equals("ID")) {
-                            kh = new KhachHangDAO().getAccountByID(Integer.parseInt(cookie.getValue()));
+                KhachHang kh = new KhachHang();//lay danh sach cookie
+                if (cookies.length > 1) {//neu nguoi dung da dang nhap roi
+                    for (Cookie cookie : cookies) {//vong lap lay gia tri trong cookie
+                        if (cookie.getName().equals("ID")) {//neu name cookie bang ID
+                            kh = new KhachHangDAO().getAccountByID(Integer.parseInt(cookie.getValue()));//lay thong tin khach hang bang id
                         }
                     }
                 }
-                new KhachHangDAO().updateBill(Integer.parseInt(kh.getSoLuongMua()) + totalExport, kh.getIdTaikhoan());
-                if (checkAddBill) {
-                    session.removeAttribute("listCart");
-                    response.sendRedirect("index.jsp?buySuccess=true");
-                } else {
-                    response.sendRedirect("index.jsp?buySuccess=false");
+                new KhachHangDAO().updateBill(Integer.parseInt(kh.getSoLuongMua()) + totalExport, kh.getIdTaikhoan());//cap nhat thong tin khach hang
+                if (checkAddBill) {//neu mua thanh cong
+                    session.removeAttribute("listCart");//xoa gio hang
+                    response.sendRedirect("index.jsp?buySuccess=true");//truyen qua index.jsp
+                } else {//neu mua that bai
+                    response.sendRedirect("index.jsp?buySuccess=false");//truyen qua index.jsp
                 }
             }
         }

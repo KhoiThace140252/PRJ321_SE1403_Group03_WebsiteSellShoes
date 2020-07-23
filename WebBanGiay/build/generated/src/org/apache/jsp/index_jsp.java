@@ -99,14 +99,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </div>\n");
       out.write("        ");
 
-            String buySuccess = request.getParameter("buySuccess");
-            if (buySuccess != null) {
-                if (buySuccess.equals("true")) {
-                    out.print("<script>alert('Purchase Successful')</script>");
-                    out.print("<script>location.href='/WebBanGiay/index.jsp'</script>");
-                } else {
-                    out.print("<script>alert('Purchase Failed')</script>");
-                    out.print("<script>location.href='/WebBanGiay/index.jsp'</script>");
+            String buySuccess = request.getParameter("buySuccess");//tao mot bien string kiem tra xem nguoi dung mua hang thanh cong hay that bai
+            if (buySuccess != null) {//neu nhu gia tri string khac null
+                if (buySuccess.equals("true")) {//neu mua thanh cong
+                    out.print("<script>alert('Purchase Successful')</script>");//thong bao mua thanh cong
+                    out.print("<script>location.href='/WebBanGiay/index.jsp'</script>");//load lai trang chu
+                } else {//neu mua that bai
+                    out.print("<script>alert('Purchase Failed')</script>");//thong bao mua that bai
+                    out.print("<script>location.href='/WebBanGiay/index.jsp'</script>");//load lai trang chu
                 }
             }
         
@@ -187,13 +187,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <div class=\"container\">\n");
       out.write("                ");
 
-                    Map<String, SanPham> map = new SanPhamDAO().getTinhTrangSanPham();;
-                    Collection<SanPham> values = map.values();
-                    int i = 0;
-                    for (SanPham row : values) {
-                        i++;
-                        if (i > 6) {
-                            break;
+                    Map<String, SanPham> map = new SanPhamDAO().getTinhTrangSanPham();//tao mot map luu cac san pham co tinh trang la san sang
+                    Collection<SanPham> values = map.values();//lay gia tri trong map
+                    int i = 0;//khai bao bien i
+                    for (SanPham row : values) {//vong lap in cac gia tri trong map ra view
+                        i++;//tang i
+                        if (i > 6) {//in ra toi da 6 san pham thi dung lai
+                            break;//thoat
                         }
 
                 
@@ -206,14 +206,15 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"bottom-2-top\">\n");
       out.write("                            <div class=\"img\"><img src=\"");
       out.print(row.getHinhAnh());
-      out.write("\" alt=\"\" class=\"img-responsive gri-wid\"></div>\n");
+      out.write("\" alt=\"\" class=\"img-responsive gri-wid\"></div> <!--In Hinh anh-->\n");
       out.write("                            <div class=\"info\">\n");
       out.write("                                <div class=\"pull-left styl-hdn\">\n");
       out.write("                                    <h3>");
       out.print(row.getTenSanPham());
-      out.write("</h3>\n");
+      out.write("</h3> <!--In ten san pham-->\n");
       out.write("                                </div>\n");
       out.write("                                <div class=\"pull-right styl-price\">\n");
+      out.write("                                     <!--Truyen qua ben mua hang de luu san pham vao gio hang-->\n");
       out.write("                                    <p><a  href=\"CartController?idsanpham=");
       out.print(row.getMaSanPham());
       out.write("&BuyQuantity=1\" class=\"item_add\"><span class=\"glyphicon glyphicon-shopping-cart grid-cart\" aria-hidden=\"true\"></span> <span class=\" item_price\">$");
@@ -226,6 +227,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    </div>\n");
       out.write("                    <!-- end normal -->\n");
       out.write("                    <div class=\"quick-view\">\n");
+      out.write("                         <!--Truyen qua ben show chi tiet san pham-->\n");
       out.write("                        <a href=\"ShowProductController?iddetailproduct=");
       out.print( row.getMaSanPham());
       out.write("\">Quick view</a>\n");
