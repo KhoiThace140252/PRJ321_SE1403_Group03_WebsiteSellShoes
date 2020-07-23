@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author HAOVNCE140475
  */
 @WebServlet(name = "SearchController", urlPatterns = {"/SearchController"})
 public class SearchController extends HttpServlet {
@@ -77,12 +77,12 @@ public class SearchController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String search = request.getParameter("typeSearch");
-         Map<String, SanPham> map = new HashMap<>();
-        map = new SanPhamDAO().searchProduct(search);
+        String search = request.getParameter("typeSearch");     //get key word use to search product
+        Map<String, SanPham> map = new HashMap<>();        //Create map use to store product after search
+        map = new SanPhamDAO().searchProduct(search);       //add product map after search
         request.setAttribute("SearchValue", map);
         request.setAttribute("nameSearch", search);
-        RequestDispatcher requestSearch=request.getRequestDispatcher("search.jsp");
+        RequestDispatcher requestSearch = request.getRequestDispatcher("search.jsp");     //Request dispatcher to search.jsp
         requestSearch.forward(request, response);
     }
 

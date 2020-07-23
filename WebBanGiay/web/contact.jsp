@@ -72,32 +72,36 @@
                     <h3>Catch us</h3>
                     <div class="contact-content">
                         <form action="ContactController" method="post">
-                             <input type="text" class="textbox" name="title" value=" Your Title" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                        this.value = 'Your Title';
-                                    }"><br>
-                            <input type="text" class="textbox" name="name" value=" Your Name" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                        this.value = 'Your Name';
-                                    }"><br>
-                            <input type="text" class="textbox" name="email" value="Your E-Mail" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                        this.value = 'Your E-Mail';
-                                    }"><br>
-                            <div class="clear"> </div>
-                            <div>
-                                <textarea value="Message:" name="message" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                            this.value = 'Your Message ';
-                                        }">Your Message</textarea><br>
-                            </div>	
-                            <div class="submit"> 
-                                <input class="btn btn-default cont-btn" type="submit" value="SEND " />
-                            </div>
-                        </form>
-                        <div class="map">
-                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.8838496075136!2d105.7552704146158!3d10.026442692833065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a08830e54e5f25%3A0xd7d159025caa8609!2zxJDGsOG7nW5nIE5ndXnhu4VuIFbEg24gTGluaCwgS2h1IGTDom4gY8awIDkxQiwgQW4gS2jDoW5oLCBOaW5oIEtp4buBdSwgQ-G6p24gVGjGoSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1594110289327!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        <%-- input title--%>
+                        <input type="text" class="textbox" name="title" value=" Your Title" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                    this.value = 'Your Title';
+                                }"><br>
+                        <%-- input name--%>
+                        <input type="text" class="textbox" name="name" value=" Your Name" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                    this.value = 'Your Name';
+                                }"><br>
+                        <%-- input email--%>
+                        <input type="text" class="textbox" name="email" value="Your E-Mail" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                    this.value = 'Your E-Mail';
+                                }"><br>
+                        <div class="clear"> </div>
+                        <div>
+                            <%-- input message--%>
+                            <textarea value="Message:" name="message" onfocus="this.value = '';" onblur="if (this.value == '') {
+                                        this.value = 'Your Message ';
+                                    }">Your Message</textarea><br>
+                        </div>	
+                        <div class="submit"> 
+                            <input class="btn btn-default cont-btn" type="submit" value="SEND " />
                         </div>
+                    </form>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.8838496075136!2d105.7552704146158!3d10.026442692833065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a08830e54e5f25%3A0xd7d159025caa8609!2zxJDGsOG7nW5nIE5ndXnhu4VuIFbEg24gTGluaCwgS2h1IGTDom4gY8awIDkxQiwgQW4gS2jDoW5oLCBOaW5oIEtp4buBdSwgQ-G6p24gVGjGoSwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1594110289327!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
                 </div>
             </div>
-            <!--footer!-->
+        </div>
+        <!--footer!-->
         <jsp:include page="footer/footerlevel1.jsp"></jsp:include>
         <!--footer!-->
     </body>
