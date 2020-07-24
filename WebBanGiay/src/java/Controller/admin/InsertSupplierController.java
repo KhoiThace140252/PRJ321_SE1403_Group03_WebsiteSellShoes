@@ -76,10 +76,10 @@ public class InsertSupplierController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idinsert = request.getParameter("InsertIdSupplier");
-        String nameinsert = request.getParameter("InsertNameSupplier");
-        String addressinsert = request.getParameter("InsertAddressSupplier");
-        String phoneinsert = request.getParameter("InsertPhoneSupplier");
+        String idinsert = request.getParameter("InsertIdSupplier");//lay gia tri cua doi tuong InsertIdSupplier
+        String nameinsert = request.getParameter("InsertNameSupplier");// lay gia tri cua doi tuong InsertNameSupplier
+        String addressinsert = request.getParameter("InsertAddressSupplier"); // lay gia tri cua doi tuong InsertAddressSupplier
+        String phoneinsert = request.getParameter("InsertPhoneSupplier");// lay gia tri cua doi tuong InsertPhoneSupplier
         String DIR = "images\\";
         String filename = "";
         try {
@@ -87,10 +87,10 @@ public class InsertSupplierController extends HttpServlet {
         } catch (Exception e) {
         }
 
-        String mota = request.getParameter("InsertDescriptionSupplier");
+        String mota = request.getParameter("InsertDescriptionSupplier");// lay gia tri cua doi tuong InsertDescriptionSupplier
         NhaCungCap ncc = new NhaCungCap(idinsert, nameinsert, addressinsert, phoneinsert, filename, mota, "Already");
         new NhaCungCapDAO().add(ncc);
-        response.sendRedirect("suppliers.jsp");
+        response.sendRedirect("suppliers.jsp");// chuyen trang sang suppliers.jsp
     }
 
     /**

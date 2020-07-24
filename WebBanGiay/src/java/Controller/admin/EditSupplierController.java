@@ -36,11 +36,14 @@ public class EditSupplierController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
+        String id = request.getParameter("id");//gui phan hoi ve id
+        /*
+        neu id khac gia tri rong thi thuc thi 
+        */
         if (id != null) {
-            NhaCungCap ncc = new NhaCungCapDAO().getSupplierByID(id);
+            NhaCungCap ncc = new NhaCungCapDAO().getSupplierByID(id);//lay id cua nha cung cap
             request.setAttribute("infoSupplierProduct", ncc);
-            RequestDispatcher requestsupplier = request.getRequestDispatcher("updateSupplier.jsp");
+            RequestDispatcher requestsupplier = request.getRequestDispatcher("updateSupplier.jsp");//chuyen ket qua trang trang updateSupplier.jsp
             requestsupplier.forward(request, response);
         }
     }
@@ -71,14 +74,14 @@ public class EditSupplierController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("UpdateIdSupplier");
-        String name = request.getParameter("UpdateNameSupplier");
-        String diachi = request.getParameter("UpdateAddressSupplier");
-        String sodt = request.getParameter("UpdatePhoneSupplier");
+        String id = request.getParameter("UpdateIdSupplier");//lay gia tri cua doi tuong UpdateIdSupplier
+        String name = request.getParameter("UpdateNameSupplier"); //lay gia tri cua doi tuong UpdateNameSupplier
+        String diachi = request.getParameter("UpdateAddressSupplier");// lay gia tri cua UpdateNameSupplier
+        String sodt = request.getParameter("UpdatePhoneSupplier");// lay gia tri cua UpdatePhoneSupplier
         String DIR = "images\\";
         String filename = "";
         String oldfilename = new NhaCungCapDAO().getSupplierByID(id).getLogo();
-
+        // bat loi neu UpdateLogoSupplier la rong thi ten se bang ten cu
         try {
             if (request.getParameter("UpdateLogoSupplier").equals("")) {
                 filename = oldfilename;
@@ -87,10 +90,10 @@ public class EditSupplierController extends HttpServlet {
             }
         } catch (Exception e) {
         }
-        String mota = request.getParameter("UpdateDescriptionSupplier");
+        String mota = request.getParameter("UpdateDescriptionSupplier");//lay ket qua cua doi tuong UpdateDescriptionSupplier
         NhaCungCap ncc = new NhaCungCap(id, name, diachi, sodt, filename, mota, "Already");
         new NhaCungCapDAO().edit(id, ncc);
-        response.sendRedirect("suppliers.jsp");
+        response.sendRedirect("suppliers.jsp");// chuyen trang suppliers.jsp
     }
 
     /**

@@ -32,10 +32,10 @@ public class DeleteSupplierController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idsupplier = request.getParameter("id");
-        String status="Not Already";
+        String idsupplier = request.getParameter("id");//gui ket qua cua id
+        String status="Not Already";// tao dong trang thai
         new NhaCungCapDAO().del(idsupplier,status);
-        response.sendRedirect("suppliers.jsp");
+        response.sendRedirect("suppliers.jsp");// gui ket qua ve trang suppliers.jsp
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

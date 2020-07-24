@@ -35,11 +35,14 @@ public class EditOrderController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
+        String id = request.getParameter("id");//lay gia tri cua id
+        /*
+        neu id khong phai la so 0 thi thuc thi
+        */
         if (Integer.parseInt(id) != 0) {
             DonHang dh = new DonHangDAO().getOrderByID(Integer.parseInt(id));
-            request.setAttribute("infoOrder", dh);
-            RequestDispatcher requestorder = request.getRequestDispatcher("updateOrder.jsp");
+            request.setAttribute("infoOrder", dh);//gui ket qua ve infoOrder
+            RequestDispatcher requestorder = request.getRequestDispatcher("updateOrder.jsp");//chuyen trang ve updateOrder.jsp
             requestorder.forward(request, response);
         }
     }
@@ -70,19 +73,19 @@ public class EditOrderController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idorder = request.getParameter("txtId");
-        String customer = request.getParameter("txtCustomerName");
-        String products = request.getParameter("txtProductName");
-        String amount = request.getParameter("txtAmount");
-        String total = request.getParameter("txtTotal");
-        Date date = Date.valueOf(request.getParameter("txtDate"));
-        String address = request.getParameter("txtAddress");
-        String number = request.getParameter("txtPhone");
-        String email = request.getParameter("txtEmail");
-        String status = request.getParameter("txtStatus");
+        String idorder = request.getParameter("txtId");// lay id
+        String customer = request.getParameter("txtCustomerName");//lay ten khach hang
+        String products = request.getParameter("txtProductName");//lay ten san pham
+        String amount = request.getParameter("txtAmount");// lay so luong
+        String total = request.getParameter("txtTotal");// lay tong so luong
+        Date date = Date.valueOf(request.getParameter("txtDate"));// lay ngay
+        String address = request.getParameter("txtAddress");//lay dia chi
+        String number = request.getParameter("txtPhone");// lay so dien thoai
+        String email = request.getParameter("txtEmail");// lay email
+        String status = request.getParameter("txtStatus");// lay trang thai
         DonHang dh = new DonHang(idorder, customer, products, amount, total, date, address, number, email, "Already");
         new DonHangDAO().edit(idorder, dh);
-        response.sendRedirect("order.jsp");
+        response.sendRedirect("order.jsp");// chuyen ket qua sang trang order.jsp
     }
 
     /**
