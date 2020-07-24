@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 23, 2020 lúc 11:03 AM
+-- Thời gian đã tạo: Th7 24, 2020 lúc 11:09 AM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
 -- Phiên bản PHP: 5.6.40
 
@@ -48,9 +48,7 @@ CREATE TABLE `donhang` (
 --
 
 INSERT INTO `donhang` (`Madonhang`, `Tenkhachhang`, `Tensanpham`, `Tongsoluong`, `Tongtien`, `Ngaymua`, `Diachi`, `Sodienthoai`, `Email`, `Tinhtrangdonhang`) VALUES
-(1, 'Huynh Thi Nhien', ' Nike Metcon 5 Nike LegendX 7 Nike Tanjun Jordan Max 20', 10, 1167, '2020-07-23', 'Can Tho', '0902777999', 'nhienht@gmail.com', 'Already'),
-(2, 'Huynh Thi Nhien', ' Nike LegendX 7', 7, 1050, '2020-07-23', 'Can Tho', '0902777999', 'nhienht@gmail.com', 'Already'),
-(3, 'Huynh Ba Dat', ' Nike Metcon 5 Nike LegendX 7 Jordan Max 20 Nike Kyrie 6', 4, 767, '2020-07-23', 'Sa Dec', '0939657217', 'dathb@fpt.edu.vn', 'Already');
+(1, 'Hua Thien Ngan', ' Nike Metcon 5 Nike LegendX 7 Jordan Mars Nike Tanjun Nike Air Max 95 SP', 5, 852, '2020-07-24', 'Can Tho', '0902777999', 'nhienht@gmail.com', 'Already');
 
 -- --------------------------------------------------------
 
@@ -111,13 +109,6 @@ CREATE TABLE `phanhoi` (
   `Ngaygio` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Bảng hiển thị thông tin phản hồi của khách hàng';
 
---
--- Đang đổ dữ liệu cho bảng `phanhoi`
---
-
-INSERT INTO `phanhoi` (`Idphanhoi`, `Chude`, `Tentaikhoan`, `Email`, `Noidung`, `Ngaygio`) VALUES
-(1, 'Delete all', 'Tieu Khoi', 'khoithace140252@gmail.com', 'Please delete all your product', '2020-07-23');
-
 -- --------------------------------------------------------
 
 --
@@ -143,10 +134,10 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`Masanpham`, `Ten`, `Giadagiam`, `Giaban`, `Soluong`, `Manhacungcap`, `Maloai`, `Hinhanh`, `Soluongnhap`, `Soluongban`, `Tinhtrang`) VALUES
-('AT001', 'Nike LegendX 7', 0, 150, 41, 'NCC-NIKE-001', '11HZ72-9MA', 'images\\nike-legendx-7.jpg', 50, 9, 'Already'),
-('AT002', 'Nike Tanjun', 0, 100, 43, 'NCC-NIKE-001', 'LG6Z7J-98V', 'images\\nike-tanjun.jpg', 50, 7, 'Already'),
+('AT001', 'Nike LegendX 7', 0, 150, 49, 'NCC-NIKE-001', '11HZ72-9MA', 'images\\nike-legendx-7.jpg', 50, 1, 'Already'),
+('AT002', 'Nike Tanjun', 0, 100, 49, 'NCC-NIKE-001', 'LG6Z7J-98V', 'images\\nike-tanjun.jpg', 50, 1, 'Already'),
 ('AT003', 'Jordan Westbrook', 0, 210, 50, 'NCC-NIKE-001', 'BLS472-9F4', 'images\\jordan-westbrook.jpg', 50, 0, 'Already'),
-('AT004', 'Nike Kyrie 6', 0, 300, 49, 'NCC-NIKE-001', 'BLA472-KJI', 'images\\kyrie-6.jpg', 50, 1, 'Already'),
+('AT004', 'Nike Kyrie 6', 0, 300, 50, 'NCC-NIKE-001', 'BLA472-KJI', 'images\\kyrie-6.jpg', 50, 0, 'Already'),
 ('AT005', 'Zoom Freak 1 Multi', 2, 280, 50, 'NCC-NIKE-001', 'BK5F72-LD1', 'images\\zoom-freak-1-multi.jpg', 50, 0, 'Already'),
 ('AT006', 'Kyrie 6 AS EP', 1, 199, 50, 'NCC-NIKE-001', 'BLP072-168', 'images\\kyrie-6-as-ep-basketball-shoe-Rr5kzh.jpg', 50, 0, 'Already'),
 ('AT007', 'Nike SB Charge', 0, 300, 50, 'NCC-NIKE-001', 'BQ6I92-1KA', 'images\\sb-charge-canvas-skate-shoe-RgSxkT.jpg', 50, 0, 'Already'),
@@ -154,15 +145,15 @@ INSERT INTO `sanpham` (`Masanpham`, `Ten`, `Giadagiam`, `Giaban`, `Soluong`, `Ma
 ('AT009', 'Air Jordan 1 Mid', 3, 300, 50, 'NCC-NIKE-001', 'BQ6472-164', 'images\\air-jordan-1-mid.jpg', 50, 0, 'Already'),
 ('AT010', 'Air Jordan Low', 1, 199, 50, 'NCC-NIKE-0011', 'ZX6475-8941', 'images\\air-jordan-low-pf.jpg', 50, 0, 'Already'),
 ('AT011', 'Air Jordan OG1', 1, 289, 50, 'NCC-NIKE-0011', 'GH7825-5261', 'images\\air-ghost-racer.jpg', 50, 0, 'Already'),
-('AT012', 'Jordan Mars', 2, 156, 50, 'NCC-NIKE-001', 'HK3561-265', 'images\\jordan-mars-270.jpg', 50, 0, 'Already'),
-('AT013', 'Jordan Max 20', 11, 155, 48, 'NCC-NIKE-002', 'AP2345-8909', 'images\\jordan-max-200.jpg', 50, 2, 'Already'),
+('AT012', 'Jordan Mars', 2, 156, 49, 'NCC-NIKE-001', 'HK3561-265', 'images\\jordan-mars-270.jpg', 50, 1, 'Already'),
+('AT013', 'Jordan Max 20', 11, 155, 50, 'NCC-NIKE-002', 'AP2345-8909', 'images\\jordan-max-200.jpg', 50, 0, 'Already'),
 ('AT014', 'KD13 EP', 0, 300, 50, 'NCC-NIKE-001', 'HJ4675-908', 'images\\kd13.jpg', 50, 0, 'Already'),
 ('AT015', 'LeBron 7 QS', 3, 120, 50, 'NCC-NIKE-001', 'LK8364-189', 'images\\lebron-7-qs.jpg', 50, 0, 'Already'),
 ('AT016', 'LeBron 17', 2, 290, 50, 'NCC-NIKE-001', 'ER6892-772', 'images\\lebron-17.jpg', 50, 0, 'Already'),
-('AT017', 'Nike Air Max 95 SP', 10, 299, 50, 'NCC-NIKE-001', 'LM6882-994', 'images\\air-max-95.jpg', 50, 0, 'Already'),
+('AT017', 'Nike Air Max 95 SP', 10, 299, 49, 'NCC-NIKE-001', 'LM6882-994', 'images\\air-max-95.jpg', 50, 1, 'Already'),
 ('AT018', 'Nike Air Max 97 Utility', 1, 199, 50, 'NCC-NIKE-001', 'MA6002-004', 'images\\air-max-97-utility.jpg', 50, 0, 'Already'),
 ('AT019', 'Nike Challenger', 0, 189, 50, 'NCC-NIKE-001', 'AQ6332-009', 'images\\challenger.jpg', 50, 0, 'Already'),
-('AT020', 'Nike Metcon 5', 0, 179, 48, 'NCC-NIKE-001', 'HZ6002-304', 'images\\metcon-5.jpg', 50, 2, 'Already');
+('AT020', 'Nike Metcon 5', 0, 179, 49, 'NCC-NIKE-001', 'HZ6002-304', 'images\\metcon-5.jpg', 50, 1, 'Already');
 
 -- --------------------------------------------------------
 
@@ -192,10 +183,10 @@ CREATE TABLE `taikhoan` (
 INSERT INTO `taikhoan` (`IdTaikhoan`, `Tentaikhoan`, `Matkhau`, `Tenkhachhang`, `Gioitinh`, `Sodienthoai`, `Email`, `Ngaysinh`, `Diachi`, `Soluotmua`, `Vaitro`, `Tinhtrangtaikhoan`) VALUES
 (1, 'anhkhoi', 'cc970aceb38a011f5ec4e529f68e3ea3', 'Tieu Ha Anh Khoi', 'Male', '0901011100', 'ginkizero123@gmail.com', '2000-01-11', 'Hau Giang', 0, 'Manager', 'Used'),
 (2, 'huudang', '9b034cc2fe48de29404612242a374c15', 'Chau Huu Dang', 'Male', '0939777999', 'dangchce140529@fpt.edu.vn', '2000-07-07', 'Ca Mau', 0, 'Manager', 'Used'),
-(3, 'nhuthao', '471cea29438e0eda621da3fa02f4a225', 'Vo Nhut Hao 123', 'Male', '0979222999', 'haovnce140475@gmail.com', '2000-05-11', 'Kien Giang', 0, 'Manager', 'Used'),
-(4, 'thinhien', '0842ae5d76a660f572cd32c194ce4115', 'Huynh Thi Nhien', 'Male', '0577967890', 'nhienht@gmail.com', '2000-11-11', 'Hau Giang', 17, 'Customer', 'Used'),
+(3, 'nhuthao', '471cea29438e0eda621da3fa02f4a225', 'Vo Nhut Hao', 'Male', '0979222999', 'haovnce140475@gmail.com', '2000-05-11', 'Kien Giang', 0, 'Manager', 'Used'),
+(4, 'thinhien', '0842ae5d76a660f572cd32c194ce4115', 'Huynh Thi Nhien', 'Male', '05779678901', 'nhienht@gmail.com', '2000-11-11', 'Hau Giang', 5, 'Customer', 'Used'),
 (5, 'thanhnhan', '8bb23a5000d187f75b898223abf9251f', 'Le Thanh Nhan', 'Male', '01697638366', 'nhanlt@fpt.edu.vn', '2000-03-04', 'Can Tho', 0, 'Customer', 'Used'),
-(6, 'dathb', 'e10adc3949ba59abbe56e057f20f883e', 'Huynh Ba Dat1', 'Male', '0939657217', 'dathbce140456@fpt.edu.vn', '1999-12-01', 'Sa Dec', 4, 'Customer', 'Used');
+(6, 'dathb', 'e10adc3949ba59abbe56e057f20f883e', 'Huynh Ba Dat1', 'Male', '0939657217', 'dathbce140456@fpt.edu.vn', '1999-12-01', 'Sa Dec', 0, 'Customer', 'Used');
 
 -- --------------------------------------------------------
 
@@ -297,7 +288,7 @@ ALTER TABLE `thongtinsanpham`
 -- AUTO_INCREMENT cho bảng `donhang`
 --
 ALTER TABLE `donhang`
-  MODIFY `Madonhang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Madonhang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `phanhoi`
