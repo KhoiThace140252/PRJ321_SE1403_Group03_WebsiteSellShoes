@@ -7,23 +7,15 @@ package Model;
 
 /**
  *
- * @author HAOVNCE140475
+ * @author Admin
  */
 public class LoaiSanPham {
 
-    String maLoai;  //id type of product
-    String tenLoai;  //name type of product
-    String maNhaCungCap;  //supplier id
-    String moTaLoai;  //description type of product
+    String maLoai;
+    String tenLoai;
+    String maNhaCungCap;
+    String moTaLoai;
 
-    /**
-     * Constructor
-     *
-     * @param maLoai id type of product
-     * @param tenLoai name type of product
-     * @param maNhaCungCap supplier id
-     * @param moTaLoai description type of product
-     */
     public LoaiSanPham(String maLoai, String tenLoai, String maNhaCungCap, String moTaLoai) {
         super();
         this.maLoai = maLoai;
@@ -32,66 +24,34 @@ public class LoaiSanPham {
         this.moTaLoai = moTaLoai;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getMaLoai() {
         return maLoai;
     }
 
-    /**
-     *
-     * @param maLoai
-     */
     public void setMaLoai(String maLoai) {
         this.maLoai = maLoai;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getTenLoai() {
         return tenLoai;
     }
 
-    /**
-     *
-     * @param tenLoai
-     */
     public void setTenLoai(String tenLoai) {
         this.tenLoai = tenLoai;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getMaNhaCungCap() {
         return maNhaCungCap;
     }
 
-    /**
-     *
-     * @param maNhaCungCap
-     */
     public void setMaNhaCungCap(String maNhaCungCap) {
         this.maNhaCungCap = maNhaCungCap;
     }
 
-    /**
-     *
-     * @return
-     */
     public String getMoTaLoai() {
         return moTaLoai;
     }
 
-    /**
-     *
-     * @param moTa
-     */
     public void setMoTaLoai(String moTa) {
         this.moTaLoai = moTaLoai;
     }

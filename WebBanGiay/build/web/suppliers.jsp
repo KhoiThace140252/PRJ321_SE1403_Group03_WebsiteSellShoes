@@ -92,13 +92,13 @@
                                             <%
                                                 Map<String, NhaCungCap> mapNhaCungCap = new NhaCungCapDAO().layDuLieuTuDatabase();
                                                 Collection<NhaCungCap> values = mapNhaCungCap.values();
-                                                for (NhaCungCap row : values) {     //use to print out data
-%>
+                                                for (NhaCungCap row : values) {
+                                            %>
                                             <td><%=row.getMaNhaCungCap()%></td>
                                             <td><%=row.getTenNhaCungCap()%></td>
                                             <td><%=row.getDiaChi()%></td>
                                             <td><%=row.getSoDienThoai()%></td>   
-
+                                            
                                             <td><img width="170" height="100" hspace="10" src="<%=row.getLogo()%>"/></td>
                                             <td><%=row.getMota()%></td>
                                             <td><%=row.getTinhtrangncc()%></td>
@@ -106,7 +106,7 @@
                                                 <a class="nav-link" href="EditSupplierController?id=<%=row.getMaNhaCungCap()%>"><i class="fas fa-fw fa-pen"></i></a>
                                                 <a class="nav-link" href="DeleteSupplierController?id=<%=row.getMaNhaCungCap()%>"><i class="fas fa-fw fa-trash"></i></a>
                                             </td>
-
+                                            
                                         </tr>
                                         <%
                                             }

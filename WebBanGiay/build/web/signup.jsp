@@ -84,31 +84,31 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <p>If you have previously Login with us, <a href="signup.jsp">Click Here</a></p>
                             <form action="LoginController?action=Login" method="post">
                                 <h5>User Name:</h5>	
-                                <input type="text" name="username" value=""  placeholder="Username">    <%--get input username --%>
-                            <h5>Password:</h5>
-                            <input type="password" name="password" value="" placeholder="Password"><br><%--get input password --%>
-                            <%
-                                if (request.getParameter("action") != null) {   //check username and pass if false
-                                    out.print("<h4 style='color: red;'>" + "Invalid username or password" + "</h4><br>");
-                                }
-                            %>
-
-                            <input type="submit" value="Login">
-                        </form>                          
+                                <input type="text" name="username" value=""  placeholder="Username">
+                                <h5>Password:</h5>
+                                <input type="password" name="password" value="" placeholder="Password"><br>
+                                <%
+                                    if(request.getParameter("action")!=null){
+                                        out.print("<h4 style='color: red;'>"+"Invalid username or password"+"</h4><br>");
+                                    }
+                                %>
+                                
+                                <input type="submit" value="Login">
+                            </form>                          
+                        </div>
+                        <div class="col-md-6 login-right">
+                            <h3>New Registration</h3>
+                            <div class="strip"></div>
+                            <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+                            <a href="register.jsp" class="button">Create An Account</a>
+                        </div>
+                        <div class="clearfix"></div>
                     </div>
-                    <div class="col-md-6 login-right">
-                        <h3>New Registration</h3>
-                        <div class="strip"></div>
-                        <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
-                        <a href="register.jsp" class="button">Create An Account</a>
-                    </div>
-                    <div class="clearfix"></div>
                 </div>
             </div>
-        </div>
-        <!--login-page-->
-        <!--sign up-->
-        <!--footer!-->
+            <!--login-page-->
+            <!--sign up-->
+            <!--footer!-->
         <jsp:include page="footer/footerlevel1.jsp"></jsp:include>
         <!--footer!-->
     </body>

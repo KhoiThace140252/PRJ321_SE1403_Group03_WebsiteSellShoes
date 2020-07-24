@@ -82,7 +82,7 @@
                                             <%
                                                 Map<String, PhanHoi> mapPhanHoi = new PhanHoiDAO().loadPhanHoi();
                                                 Collection<PhanHoi> values = mapPhanHoi.values();
-                                                for (PhanHoi row : values) {//get data from map and print out
+                                                for (PhanHoi row : values) {
 
 
                                             %>
@@ -96,7 +96,7 @@
                                             <td>
                                                 <a class="nav-link" href="DeleteFeedbackController?id=<%=row.getIdphanhoi()%>"><i class="fas fa-fw fa-trash"></i></a>
                                             </td>
-                                        </tr>
+                                            </tr>
                                         <%
                                             }
                                         %>
