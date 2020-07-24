@@ -61,12 +61,12 @@
         <div class="shop-grid">
             <div class="container">
                 <%
-                    Map<String, SanPham> map = (Map<String, SanPham>) request.getAttribute("SearchValue");
-                    Collection<SanPham> values = map.values();
-                    int i = 0;
-                    for (SanPham row : values) {
-                        i++;
-                        if (i > 100) {
+                    Map<String, SanPham> map = (Map<String, SanPham>) request.getAttribute("SearchValue");//tao map get du lieu tu database ve map
+                    Collection<SanPham> values = map.values();//mot colleaction get values
+                    int i = 0;//khoi tao bien i
+                    for (SanPham row : values) {//vong lap in toan bo san pham tim duoc bang tu khoa
+                        i++;//tang i
+                        if (i > 100) {//toi da 100 san pham
                             break;
                         }
 

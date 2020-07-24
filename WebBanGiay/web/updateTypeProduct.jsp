@@ -39,7 +39,7 @@
                     <form action="EditProductTypeController" method="post">
                         <!--Type ID -->
                         <%
-                            LoaiSanPham lsp = (LoaiSanPham) request.getAttribute("infoTypeProduct");
+                            LoaiSanPham lsp = (LoaiSanPham) request.getAttribute("infoTypeProduct"); //tao mot object lsp get loai san pham
                         %>
                         <div class="form-group">
                             <div class="form-label-group">
@@ -67,7 +67,7 @@
                         <!--Description -->
                         <div class="form-group">
                             <div class="form-label-group">
-                                <input type="text"  name="txtDescriptionUpdate" value="<%=lsp.getMoTa()%>" class="form-control" >
+                                <input type="text"  name="txtDescriptionUpdate" value="<%=lsp.getMoTaLoai()%>" class="form-control" >
                                 <label>Description</label>
                             </div>
                         </div>

@@ -38,7 +38,7 @@
                 <div class="card-header">Update Product </div>
                 <div class="card-body">
                     <%
-                        ChiTietSanPham ctsp = (ChiTietSanPham) request.getAttribute("infoDetailProduct");
+                        ChiTietSanPham ctsp = (ChiTietSanPham) request.getAttribute("infoDetailProduct");//tao mot object ctsp lay thong tin chi tiet san pham
 
 
                     %>

@@ -39,7 +39,7 @@
                     <form id="edit-form-update" action="EditOrderController" method="post">
 
                         <%
-                            DonHang dh = (DonHang) request.getAttribute("infoOrder");
+                            DonHang dh = (DonHang) request.getAttribute("infoOrder");//tao mot object dh lay thong tin don hang
                         %>
                         <!--Id-->
                         <div class="form-group">

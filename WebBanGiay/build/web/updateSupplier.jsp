@@ -38,7 +38,7 @@
                 <div class="card-body">
                     <form action="EditSupplierController" method="post">
                         <%
-                            NhaCungCap ncc = (NhaCungCap) request.getAttribute("infoSupplierProduct");
+                            NhaCungCap ncc = (NhaCungCap) request.getAttribute("infoSupplierProduct"); //tao mot object ncc lay thong tin nha cung cap
                         %>
                         <!--Supplier ID-->
                         <div class="form-group">

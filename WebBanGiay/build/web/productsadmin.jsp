@@ -91,9 +91,9 @@
                                         <tbody>                  
                                             <tr>
                                             <%
-                                                Map<String, SanPham> mapSanPham = new SanPhamDAO().layDuLieuTuDatabase();
-                                                Collection<SanPham> values = mapSanPham.values();
-                                                for (SanPham row : values) {
+                                                Map<String, SanPham> mapSanPham = new SanPhamDAO().layDuLieuTuDatabase();//tao map mapSanPham get du lieu tu database ve map
+                                                Collection<SanPham> values = mapSanPham.values();//mot colleaction get values
+                                                for (SanPham row : values) {//vong lap in toan bo san pham tim duoc bang tu khoa
                                             %>
                                             <td><%=row.getMaSanPham()%></td>
                                             <td><%=row.getTenSanPham()%></td>

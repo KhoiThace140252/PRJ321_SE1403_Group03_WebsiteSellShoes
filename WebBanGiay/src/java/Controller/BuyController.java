@@ -12,8 +12,6 @@ import Model.DonHang;
 import Model.KhachHang;
 import Model.SanPham;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

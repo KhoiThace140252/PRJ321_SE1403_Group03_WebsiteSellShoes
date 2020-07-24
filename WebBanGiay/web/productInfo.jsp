@@ -95,9 +95,9 @@
                                     </thead>                                 
                                     <tr>
                                         <%
-                                            Map<String, ChiTietSanPham> mapChiTietSanPham = new ChiTietSanPhamDAO().layDuLieuTuDatabase();
-                                            Collection<ChiTietSanPham> values = mapChiTietSanPham.values();
-                                            for (ChiTietSanPham row : values) {
+                                            Map<String, ChiTietSanPham> mapChiTietSanPham = new ChiTietSanPhamDAO().layDuLieuTuDatabase();//tao map get du lieu tu database ve map
+                                            Collection<ChiTietSanPham> values = mapChiTietSanPham.values();//mot colleaction get values
+                                            for (ChiTietSanPham row : values) {//vong lap in toan bo san pham tim duoc bang tu khoa
                                         %>
                                         <td><%=row.getMasp()%></td>
                                         <td><%=row.getMoTa1()%></td>

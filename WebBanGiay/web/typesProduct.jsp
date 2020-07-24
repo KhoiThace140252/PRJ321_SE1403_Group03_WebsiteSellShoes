@@ -84,16 +84,16 @@
                                         <tbody>                  
                                             <tr>
                                             <%
-                                                Map<String, LoaiSanPham> mapLoaiSanPham = new LoaiSanPhamDAO().layDuLieuTuDatabase();
-                                                Collection<LoaiSanPham> values = mapLoaiSanPham.values();
-                                                for (LoaiSanPham row : values) {
+                                                Map<String, LoaiSanPham> mapLoaiSanPham = new LoaiSanPhamDAO().layDuLieuTuDatabase();//tao map mapLoaiSanPham get du lieu tu database ve map
+                                                Collection<LoaiSanPham> values = mapLoaiSanPham.values();//mot colleaction get values
+                                                for (LoaiSanPham row : values) {//vong lap in cac gia tri trong map
                                             %>
                                             <%
-                                                out.print("<td>" + row.getMaLoai() + "</td>");
-                                            %>
-                                            <td><%=row.getTenLoai()%></td>
-                                            <td><%=row.getMaNhaCungCap()%></td>
-                                            <td><%=row.getMoTaLoai()%></td>
+                                                out.print("<td>" + row.getMaLoai() + "</td>");//thong tin ma loai
+%>
+                                            <td><%=row.getTenLoai()%></td><!--thong tin ten loai-->
+                                            <td><%=row.getMaNhaCungCap()%></td><!--thong tin ma nha cung cap-->
+                                            <td><%=row.getMoTaLoai()%></td><!--thong tin mo ta loai-->
                                             <td>
                                                 <a class="nav-link" href="EditProductTypeController?id=<%=row.getMaLoai()%>"><i class="fas fa-fw fa-pen"></i></a>
                                                 <a class="nav-link" href="DeleteProductTypeController?id=<%=row.getMaLoai()%>"><i class="fas fa-fw fa-trash"></i></a>

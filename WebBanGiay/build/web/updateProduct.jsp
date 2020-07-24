@@ -38,7 +38,7 @@
                 <div class="card-body">
                     <form action="EditProductController" method="post" enctype="multipart/form-data">
                         <%
-                            SanPham sp = (SanPham) request.getAttribute("infoProduct");
+                            SanPham sp = (SanPham) request.getAttribute("infoProduct");//tao mot object sp lay thong tin san pham
                         %>
                         <!--Product ID -->
                         <div class="form-group">

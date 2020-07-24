@@ -90,18 +90,18 @@
                                         <tbody>                  
                                             <tr>
                                             <%
-                                                Map<String, NhaCungCap> mapNhaCungCap = new NhaCungCapDAO().layDuLieuTuDatabase();
-                                                Collection<NhaCungCap> values = mapNhaCungCap.values();
-                                                for (NhaCungCap row : values) {     //use to print out data
+                                                Map<String, NhaCungCap> mapNhaCungCap = new NhaCungCapDAO().layDuLieuTuDatabase();//tao map mapNhaCungCap get du lieu tu database ve map
+                                                Collection<NhaCungCap> values = mapNhaCungCap.values();//mot colleaction get values
+                                                for (NhaCungCap row : values) {     //vong lap in cac gia tri trong map
 %>
-                                            <td><%=row.getMaNhaCungCap()%></td>
-                                            <td><%=row.getTenNhaCungCap()%></td>
-                                            <td><%=row.getDiaChi()%></td>
-                                            <td><%=row.getSoDienThoai()%></td>   
+                                            <td><%=row.getMaNhaCungCap()%></td><!--thong tin ma nha cung cap-->
+                                            <td><%=row.getTenNhaCungCap()%></td><!--thong tin ten nha cung cap-->
+                                            <td><%=row.getDiaChi()%></td><!--thong tin dia chi nha cung cap-->
+                                            <td><%=row.getSoDienThoai()%></td>   <!--thong tin so dien thoai nha cung cap-->
 
-                                            <td><img width="170" height="100" hspace="10" src="<%=row.getLogo()%>"/></td>
-                                            <td><%=row.getMota()%></td>
-                                            <td><%=row.getTinhtrangncc()%></td>
+                                            <td><img width="170" height="100" hspace="10" src="<%=row.getLogo()%>"/></td><!--thong tin hinh anh nha cung cap-->
+                                            <td><%=row.getMota()%></td><!--thong tin mo ta nha cung cap-->
+                                            <td><%=row.getTinhtrangncc()%></td><!--thong tin tinh trang nha cung cap-->
                                             <td>
                                                 <a class="nav-link" href="EditSupplierController?id=<%=row.getMaNhaCungCap()%>"><i class="fas fa-fw fa-pen"></i></a>
                                                 <a class="nav-link" href="DeleteSupplierController?id=<%=row.getMaNhaCungCap()%>"><i class="fas fa-fw fa-trash"></i></a>

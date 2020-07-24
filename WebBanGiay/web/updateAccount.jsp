@@ -38,7 +38,7 @@
                 <div class="card-body">
                     <form id="edit-form-update" action="EditAccountController" method="post">        
                         <%
-                            KhachHang kh = (KhachHang) request.getAttribute("infoUser");
+                            KhachHang kh = (KhachHang) request.getAttribute("infoUser");//tao mot object kh lay thong tin khach hang
                         %>
                         <!--Account's ID -->
                         <div class="form-group">

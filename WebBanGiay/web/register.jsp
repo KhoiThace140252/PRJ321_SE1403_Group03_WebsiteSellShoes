@@ -117,13 +117,13 @@
                             <p class="click">By clicking this button, you are agree to my  <a href="#">Policy Terms and Conditions.</a></p> 
                         </form>
                         <script>
-                            var inputs = document.forms['register'].getElementsByTagName('input');
-                            var run_onchange = false;
-                            function valid() {
-                                var errors = false;
-                                var reg_mail = /^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;
-                                for (var i = 0; i < inputs.length; i++) {
-                                    var value = inputs[i].value;
+                            var inputs = document.forms['register'].getElementsByTagName('input'); // tao mot bien kiem lay gia tri tu input voi form la register
+                            var run_onchange = false;//tao bien kiem tra
+                            function valid() { //ham check du lieu
+                                var errors = false;//bien error kiem tra du lieu
+                                var reg_mail = /^[A-Za-z0-9]+([_\.\-]?[A-Za-z0-9])*@[A-Za-z0-9]+([\.\-]?[A-Za-z0-9]+)*(\.[A-Za-z]+)+$/;//bieu thuc chinh quy doi voi email
+                                for (var i = 0; i < inputs.length; i++) {//vong lap kiem tra cac gia tri lay duoc phu hop hay khong
+                                    var value = inputs[i].value;//bien value lay cac chi so trong mang
                                     var id = inputs[i].getAttribute('id');
 
                                     // Tạo phần tử span lưu thông tin lỗi
