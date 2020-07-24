@@ -127,13 +127,12 @@
                                 <label>Quantity</label>
                             </div>
                         </div>
-<!--                        Total of money 
+                        Total of money 
                         <div class="form-group">
                             <div class="form-label-group">
-                                <input type="text" value="<%=dh.getTongTien()%>" class="form-control" readonly>
-                                <label>Total of money</label>
+                                <input type="text" value="<%=dh.getTongTien()%>" class="form-control" readonly>                
                             </div>
-                        </div>-->
+                        </div>
                         <!--Product's Name -->
                         <div class="form-group">
                             <div class="form-label-group">
