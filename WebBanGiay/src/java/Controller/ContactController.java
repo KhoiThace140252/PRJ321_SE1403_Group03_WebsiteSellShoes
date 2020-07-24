@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author HAOVNCE140475
  */
 @WebServlet(name = "ContactController", urlPatterns = {"/ContactController"})
 public class ContactController extends HttpServlet {
@@ -74,14 +74,14 @@ public class ContactController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String Chude = request.getParameter("title");
-        String Tentaikhoan = request.getParameter("name");
-        String Email = request.getParameter("email");
-        String Noidung = request.getParameter("message");
-        PhanHoi ph = new PhanHoi(0, Chude, Tentaikhoan, Email, Noidung,null);
+        String Chude = request.getParameter("title");       //use to get content of feedback
+        String Tentaikhoan = request.getParameter("name");       //use to get account of user 
+        String Email = request.getParameter("email");       //use to get email of user 
+        String Noidung = request.getParameter("message");       //use to get comment of user 
+        PhanHoi ph = new PhanHoi(0, Chude, Tentaikhoan, Email, Noidung, null);
         PhanHoiDAO.mapPhanHoi.put(ph.getChude(), ph);
-        new PhanHoiDAO().add(ph);
-        response.sendRedirect("contact.jsp");
+        new PhanHoiDAO().add(ph);       //call method use to add data to database
+        response.sendRedirect("contact.jsp");       //Redirect to contact.jsp
 
     }
 

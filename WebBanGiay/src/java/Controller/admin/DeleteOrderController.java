@@ -32,9 +32,9 @@ public class DeleteOrderController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String iddelete=request.getParameter("id");//get id ma don hang
-       new DonHangDAO().del(iddelete);//xoa don hang
-       response.sendRedirect("order.jsp");//chuyen tiep den trang order.jsp
+        String iddelete=request.getParameter("id");
+       new DonHangDAO().del(iddelete);
+       response.sendRedirect("order.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author HAOVNCE140475
  */
 @WebServlet(name = "DeleteProductInfoController", urlPatterns = {"/DeleteProductInfoController"})
 public class DeleteProductInfoController extends HttpServlet {
@@ -34,9 +34,9 @@ public class DeleteProductInfoController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idproduct = request.getParameter("id");
-        new SanPhamDAO().del(idproduct);
-        response.sendRedirect("productInfo.jsp");
+        String idproduct = request.getParameter("id");      //get id product
+        new SanPhamDAO().del(idproduct);        //call method use to delete product infor 
+        response.sendRedirect("productInfo.jsp");   //Redirect to productInfo.jsp
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author HAOVNCE140475
  */
 @WebServlet(name = "EditProductTypeController", urlPatterns = {"/EditProductTypeController"})
 public class EditProductTypeController extends HttpServlet {
@@ -34,10 +34,11 @@ public class EditProductTypeController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        if (id != null) {
-            LoaiSanPham lsp = new LoaiSanPhamDAO().getTypeProductByID(id);
+        String id = request.getParameter("id");     //get input id type product 
+        if (id != null) {   //if id not null
+            LoaiSanPham lsp = new LoaiSanPhamDAO().getTypeProductByID(id);  //call method use to get data type product by id    
             request.setAttribute("infoTypeProduct", lsp);
+            //Redirect to updateTypeProduct.jsp
             RequestDispatcher requesttypeproduct = request.getRequestDispatcher("updateTypeProduct.jsp");
             requesttypeproduct.forward(request, response);
         }
@@ -69,13 +70,13 @@ public class EditProductTypeController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("txtID");
-        String name = request.getParameter("txtNameType");
-        String supplierid = request.getParameter("txtSupplier");
-        String description = request.getParameter("txtDescription");
+        String id = request.getParameter("txtID");      //get input id type product
+        String name = request.getParameter("txtNameType");      //get input name type of product
+        String supplierid = request.getParameter("txtSupplier");      //get input supplier type product
+        String description = request.getParameter("txtDescription");      //get input description type product
         LoaiSanPham lsp = new LoaiSanPham(id, name, supplierid, description);
-        new LoaiSanPhamDAO().edit(id, lsp);
-        response.sendRedirect("typesProduct.jsp");
+        new LoaiSanPhamDAO().edit(id, lsp);     //update type product
+        response.sendRedirect("typesProduct.jsp");     //Redirect to typesProduct.jsp
     }
 
     /**

@@ -73,10 +73,10 @@
                 <form action="CartController">
 
                 <%
-                    ChiTietSanPham getctsp = (ChiTietSanPham) request.getAttribute("showfromindex1");//lay thong tin chi tiet san pham bang request
-                    if (getctsp != null) {//neu nhu co san pham
-                        SanPham sp = (SanPham) request.getAttribute("showfromindex2");//thuc hien lay thong tin san pham bang request
-                        NhaCungCap ncc = (NhaCungCap) request.getAttribute("showfromindex3");//thuc hien lay thong tin nha cung cap bang request
+                    ChiTietSanPham getctsp = (ChiTietSanPham) request.getAttribute("showfromindex1");
+                    if (getctsp != null) {
+                        SanPham sp = (SanPham) request.getAttribute("showfromindex2");
+                        NhaCungCap ncc = (NhaCungCap) request.getAttribute("showfromindex3");
 
                 %>
                 <input type="hidden" name="idsanpham" value="<%=sp.getMaSanPham()%>"/>

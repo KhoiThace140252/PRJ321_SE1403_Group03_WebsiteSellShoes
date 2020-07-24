@@ -32,9 +32,9 @@ public class DeleteFeedbackController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");//ley id phan hoi
-        new PhanHoiDAO().del(id);//xoa phan hoi
-        response.sendRedirect("feedback.jsp");//chuyen tiep den trang feedback.jsp
+        String id = request.getParameter("id");
+        new PhanHoiDAO().del(id);
+        response.sendRedirect("feedback.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

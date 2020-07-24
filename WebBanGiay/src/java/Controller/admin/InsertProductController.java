@@ -21,7 +21,7 @@ import javax.servlet.http.Part;
 
 /**
  *
- * @author Admin
+ * @author HAOVNCE140475
  */
 public class InsertProductController extends HttpServlet {
 
@@ -65,25 +65,25 @@ public class InsertProductController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String masp = (String) request.getParameter("InsertmaSanPham");
-        String tensp = (String) request.getParameter("InserttenSanPham");
-        String giagiam = (String) request.getParameter("InsertgiaDaGiam");
-        String giaban = (String) request.getParameter("InsertgiaBan");
-        String nhacungcap = (String) request.getParameter("InsertnhaCungCap");
-        String maloai = (String) request.getParameter("InsertmaLoai");
-        String DIR = "images\\";
+        String masp = (String) request.getParameter("InsertmaSanPham");     //get input id product
+        String tensp = (String) request.getParameter("InserttenSanPham");     //get input name product
+        String giagiam = (String) request.getParameter("InsertgiaDaGiam");     //get input discount price of product
+        String giaban = (String) request.getParameter("InsertgiaBan");     //get input price product
+        String nhacungcap = (String) request.getParameter("InsertnhaCungCap");     //get input supplier product
+        String maloai = (String) request.getParameter("InsertmaLoai");     //get input id type product product
+        String DIR = "images\\";     //get input image product
         String filename = "";
         try {
             filename = DIR + request.getParameter("InserthinhAnh");
-        } catch (Exception e) {         
+        } catch (Exception e) {
         }
-        String slnhap = request.getParameter("InsertsoLuongNhap");   
-        int nhap = Integer.parseInt(slnhap);       
-        String soluong = String.valueOf(nhap);
+        String slnhap = request.getParameter("InsertsoLuongNhap");        //get input quantity product
+        int nhap = Integer.parseInt(slnhap);       //convert string to integer
+        String soluong = String.valueOf(nhap);       //convert integer to string
         SanPham sp = new SanPham(masp, tensp, giagiam, giaban, soluong, nhacungcap, maloai, filename, slnhap, "0", "Already");
-        SanPhamDAO.mapSanPham.put(sp.getMaSanPham(), sp);
-        new SanPhamDAO().add(sp);
-        response.sendRedirect("productsadmin.jsp");
+        SanPhamDAO.mapSanPham.put(sp.getMaSanPham(), sp);       //updata data
+        new SanPhamDAO().add(sp);      //call method use to insert data
+        response.sendRedirect("productsadmin.jsp");     //Redirect to productsadmin.jsp
     }
 
     /**

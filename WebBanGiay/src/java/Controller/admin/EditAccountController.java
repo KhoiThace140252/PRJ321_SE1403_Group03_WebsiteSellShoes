@@ -35,12 +35,12 @@ public class EditAccountController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");//get id khach hang
-        if (Integer.parseInt(id) != 0) {//neu id !=0
-            KhachHang kh = new KhachHangDAO().getAccountByID(Integer.parseInt(id));//get khach hang by id
-            request.setAttribute("infoUser", kh);//tao request luu thong tin
-            RequestDispatcher requestaccount = request.getRequestDispatcher("updateAccount.jsp");//chuyen tiep den trang updateAccount.jsp
-            requestaccount.forward(request, response);//thuc hien chuyen tiep
+        String id = request.getParameter("id");
+        if (Integer.parseInt(id) != 0) {
+            KhachHang kh = new KhachHangDAO().getAccountByID(Integer.parseInt(id));
+            request.setAttribute("infoUser", kh);
+            RequestDispatcher requestaccount = request.getRequestDispatcher("updateAccount.jsp");
+            requestaccount.forward(request, response);
         }
     }
 
@@ -70,20 +70,20 @@ public class EditAccountController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idaccount = request.getParameter("txtId");//get id
-        String user = request.getParameter("txtUser");//get user
-        String pass = request.getParameter("txtPass");//get pass
-        String fullname = request.getParameter("txtName");//get fullname
-        String gender = request.getParameter("txtGender");//get gender
-        String phone = request.getParameter("txtPhone");//get phone
-        String email = request.getParameter("txtEmail");//get email
-        Date birth = Date.valueOf(request.getParameter("txtBirth"));//get birthday
-        String address = request.getParameter("txtAddress");//get address
-        String number = request.getParameter("txtNumber");//get quantity
-        String role = request.getParameter("txtRole");//get role
-        KhachHang kh = new KhachHang(Integer.parseInt(idaccount), user, pass, fullname, gender, phone, email, birth, address, number, role, "Used");//luu thong tin khach hang vao kh
-        new KhachHangDAO().edit(Integer.parseInt(idaccount), kh);//thuc hien update thong tin khach hang
-        response.sendRedirect("account.jsp");//chuyen den trang account.jsp
+        String idaccount = request.getParameter("txtId");
+        String user = request.getParameter("txtUser");
+        String pass = request.getParameter("txtPass");
+        String fullname = request.getParameter("txtName");
+        String gender = request.getParameter("txtGender");
+        String phone = request.getParameter("txtPhone");
+        String email = request.getParameter("txtEmail");
+        Date birth = Date.valueOf(request.getParameter("txtBirth"));
+        String address = request.getParameter("txtAddress");
+        String number = request.getParameter("txtNumber");
+        String role = request.getParameter("txtRole");
+        KhachHang kh = new KhachHang(Integer.parseInt(idaccount), user, pass, fullname, gender, phone, email, birth, address, number, role,"Used");
+        new KhachHangDAO().edit(Integer.parseInt(idaccount), kh);
+        response.sendRedirect("account.jsp");
     }
 
     /**

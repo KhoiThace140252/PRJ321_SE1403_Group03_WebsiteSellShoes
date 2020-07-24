@@ -33,77 +33,63 @@ import java.util.logging.Logger;
  */
 public class KhachHangDAO implements ObjectDAO {
 
-    public static Map<String, KhachHang> mapKhachHang = loadData(); //tao mot hashmap luu thong tin khach hang
+    public static Map<String, KhachHang> mapKhachHang = loadData();
 
-    /**
-     * Tao constructor khong tham so
-     */
     public KhachHangDAO() {
 
     }
 
-    /**
-     * Ham load du lieu
-     *
-     * @return mapTemp chua du lieu
-     */
     public static Map<String, KhachHang> loadData() {
-        Map<String, KhachHang> mapTemp = new HashMap<>();//tao hashmap
+        Map<String, KhachHang> mapTemp = new HashMap<>();
         try {
-            ResultSet rs = new ConnectToDatabase().selectData("select * from TaiKhoan");//thuc hien cau lenh lay toan bo gia tri tren database ve
-            while (rs.next()) {//vong lap cho toi khach hang cuoi cung
-                int IdTaikhoan = rs.getInt(1);//id tai khoan
-                String taiKhoan = rs.getString(2);//tai khoan
-                String matKhau = rs.getString(3);//mat khau
-                String ten = rs.getString(4);// ten khach hang
-                String gioiTinh = rs.getString(5);//gioi tinh
-                String soDienThoai = rs.getString(6);//so dien thoai
-                String email = rs.getString(7);//email
-                Date ngaySinh = rs.getDate(8);//ngay thang nam sinh sql
-                String diaChi = rs.getString(9);//dia chi
-                String soLuongMua = rs.getString(10);//so luong mua
-                String role = rs.getString(11);//vai tro
-                String accountstatus = rs.getString(12);//tinh trang tai khoan
+            ResultSet rs = new ConnectToDatabase().selectData("select * from TaiKhoan");
+            while (rs.next()) {
+                int IdTaikhoan = rs.getInt(1);
+                String taiKhoan = rs.getString(2);
+                String matKhau = rs.getString(3);
+                String ten = rs.getString(4);
+                String gioiTinh = rs.getString(5);
+                String soDienThoai = rs.getString(6);
+                String email = rs.getString(7);
+                Date ngaySinh = rs.getDate(8);
+                String diaChi = rs.getString(9);
+                String soLuongMua = rs.getString(10);
+                String role = rs.getString(11);
+                String accountstatus = rs.getString(12);
                 KhachHang kh = new KhachHang(IdTaikhoan, taiKhoan, matKhau, ten, gioiTinh, soDienThoai, email, ngaySinh, diaChi,
-                        soLuongMua, role, accountstatus);//luu vao kh
-                mapTemp.put(kh.getTaiKhoan(), kh);//them cac thong tin vao hashmap
+                        soLuongMua, role, accountstatus);
+                mapTemp.put(kh.getTaiKhoan(), kh);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return mapTemp;//neu ghi du lieu vao khong xay ra loi
+        return mapTemp;
     }
 
-    /**
-     * ham lay thong tin khach hang bang id
-     *
-     * @param id id tai khoan
-     * @return kh
-     */
     public KhachHang getAccountByID(int id) {
         try {
-            String sql = "SELECT * FROM `taikhoan` WHERE IdTaikhoan=?";//cau lenh sql
-            Connection connect = ConnectToDatabase.getConnect();//lay ket noi
-            PreparedStatement ppstm = connect.prepareStatement(sql);//thuc hien cau lenh sql
-            ppstm.setInt(1, id);//truyen gia tri
+            String sql = "SELECT * FROM `taikhoan` WHERE IdTaikhoan=?";
+            Connection connect = ConnectToDatabase.getConnect();
+            PreparedStatement ppstm = connect.prepareStatement(sql);
+            ppstm.setInt(1, id);
             //ppstm.setString(2, "Used");
-            ResultSet rs = ppstm.executeQuery();//rs get gia tri
-            if (rs.first()) {//neu co gia tri 
-                int IdTaikhoan = rs.getInt(1);//id tai khoan
-                String taiKhoan = rs.getString(2);//tai khoan
-                String matKhau = rs.getString(3);//mat khau
-                String ten = rs.getString(4);//ten
-                String gioiTinh = rs.getString(5);//gioi tinh
-                String soDienThoai = rs.getString(6);//so dien thoai
-                String email = rs.getString(7);//email
-                Date ngaySinh = rs.getDate(8);//ngay thang nam sinh
-                String diaChi = rs.getString(9);//dia chi
-                String soLuongMua = rs.getString(10);//so luong mua
-                String role = rs.getString(11);//vai tro
-                String accountstatus = rs.getString(12);//tinh trang khach hang
+            ResultSet rs = ppstm.executeQuery();
+            if (rs.first()) {
+                int IdTaikhoan = rs.getInt(1);
+                String taiKhoan = rs.getString(2);
+                String matKhau = rs.getString(3);
+                String ten = rs.getString(4);
+                String gioiTinh = rs.getString(5);
+                String soDienThoai = rs.getString(6);
+                String email = rs.getString(7);
+                Date ngaySinh = rs.getDate(8);
+                String diaChi = rs.getString(9);
+                String soLuongMua = rs.getString(10);
+                String role = rs.getString(11);
+                String accountstatus = rs.getString(12);
                 KhachHang kh = new KhachHang(IdTaikhoan, taiKhoan, matKhau, ten, gioiTinh, soDienThoai, email, ngaySinh, diaChi,
-                        soLuongMua, role, accountstatus);//luu thong tin khach hang vao kh
+                        soLuongMua, role, accountstatus);
                 return kh;
 
             }
@@ -111,223 +97,206 @@ public class KhachHangDAO implements ObjectDAO {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;//neu get thong tin that bai
+        return null;
     }
 
-    /**
-     * Ham kiem tra dang nhap
-     *
-     * @param userName tai khoan nguoi dung
-     * @param passWord mat khau nguoi dung
-     * @return true neu thanh cong hoac false neu that bai
-     */
     public boolean checkLogin(String userName, String passWord) {
         try {
-            String sql = "select * from TaiKhoan where Tentaikhoan=? AND Matkhau=MD5(?) ";//cau lenh sql
-            Connection connect = ConnectToDatabase.getConnect();//lay ket noi
-            PreparedStatement ppstm = connect.prepareStatement(sql);//thuc hien cau lenh sql
-            ppstm.setString(1, userName);//dat gia tri
-            ppstm.setString(2, passWord);//dat gia tri
-            ResultSet rs = ppstm.executeQuery();//rs get gia tri
-            if (rs.next()) {//neu gia tri co
-                return true;//tra ve true
+            String sql = "select * from TaiKhoan where Tentaikhoan=? AND Matkhau=MD5(?) ";
+            Connection connect = ConnectToDatabase.getConnect();
+            PreparedStatement ppstm = connect.prepareStatement(sql);
+            ppstm.setString(1, userName);
+            ppstm.setString(2, passWord);
+            ResultSet rs = ppstm.executeQuery();
+            if (rs.next()) {
+                return true;
             }
         } catch (SQLException ex) {
             Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;//neu dang nhap khong thanh cong
+        return false;
     }
 
-    /**
-     * Kiem tra vai tro nguoi dung
-     *
-     * @param userName tai khoan nguoi dung
-     * @param passWord mat khau nguoi dung
-     * @return true neu la Manager or false neu la Customer
-     */
     public boolean checkRole(String userName, String passWord) {
-        KhachHang kh = mapKhachHang.get(userName);//lay username
-        if (kh != null) {//neu username khac null
-            if (kh.getRole().equals("Manager")) {//kiem tra vai tro neu la Manager
+        KhachHang kh = mapKhachHang.get(userName);
+        if (kh != null) {
+            if (kh.getRole().equals("Manager")) {
                 return true;
             }
         }
-        return false;//neu la customer
+        return false;
     }
 
-    /**
-     * Them khach hang
-     *
-     * @param obj doi tuong can thuc thi
-     * @return true neu them thanh cong va false neu tham that bai
-     */
     public boolean add(Object obj) {
-        KhachHang kh = (KhachHang) obj;//mot doi tuong kh luu khach hang
-        mapKhachHang.put(kh.getTaiKhoan(), kh);//dua vao map
-        String sql = "insert into TaiKhoan values (?,?,MD5(?),?,?,?,?,?,?,?,?,?)";//cau lenh sql
-        Connection connect = ConnectToDatabase.getConnect();//lay ket noi
+        KhachHang kh = (KhachHang) obj;
+        mapKhachHang.put(kh.getTaiKhoan(), kh);
+        String sql = "insert into TaiKhoan values (?,?,MD5(?),?,?,?,?,?,?,?,?,?)";
+        Connection connect = ConnectToDatabase.getConnect();
         try {
-            PreparedStatement ppstm = connect.prepareStatement(sql);//thuc hien cau lenh sql
-            ppstm.setString(1, null);//id tai khoan
-            ppstm.setString(2, kh.getTaiKhoan());//tai khoan
-            ppstm.setString(3, kh.getMatKhau());//mat khau
-            ppstm.setString(4, kh.getTen());//ten 
-            ppstm.setString(5, kh.getGioiTinh());//gioi tinh
-            ppstm.setString(6, kh.getSoDienThoai());//so dien thoai
-            ppstm.setString(7, kh.getEmail());//email
-            ppstm.setDate(8, kh.getNgaySinh());//ngay thang nam sinh
-            ppstm.setString(9, kh.getDiaChi());//dia chi
-            ppstm.setString(10, kh.getSoLuongMua());//so luong mua
-            ppstm.setString(11, kh.getRole());//vai tro
-            ppstm.setString(12, kh.getAccountstatus());//tinh trang khach hang
-            ppstm.executeUpdate();//thuc hien cau lenh
-            return true;//neu them thanh cong
+            PreparedStatement ppstm = connect.prepareStatement(sql);
+            ppstm.setString(1, null);
+            ppstm.setString(2, kh.getTaiKhoan());
+            ppstm.setString(3, kh.getMatKhau());
+            ppstm.setString(4, kh.getTen());
+            ppstm.setString(5, kh.getGioiTinh());
+            ppstm.setString(6, kh.getSoDienThoai());
+            ppstm.setString(7, kh.getEmail());
+            ppstm.setDate(8, kh.getNgaySinh());
+            ppstm.setString(9, kh.getDiaChi());
+            ppstm.setString(10, kh.getSoLuongMua());
+            ppstm.setString(11, kh.getRole());
+            ppstm.setString(12, kh.getAccountstatus());
+            ppstm.executeUpdate();
+            return true;
         } catch (SQLException e) {
             System.out.println("Error when add customer :" + e.getMessage());
         }
-        return false;//neu them that bai
+        return false;
     }
 
-    /**
-     * Ham xoa tai khoan khach hang bang cach doi trang thai tai khoan
-     *
-     * @param id id tai khoan
-     * @return true neu xoa thanh cong hoac false neu that bai
-     */
     public boolean del(String id) {
 
-        String sql = "Update taikhoan set Tinhtrangtaikhoan=? where IdTaikhoan='" + id + "'";//cau lenh sql
+        String sql = "Update taikhoan set Tinhtrangtaikhoan=? where IdTaikhoan='" + id + "'";
         try {
-            Connection connect = ConnectToDatabase.getConnect();//lay ket noi
-            PreparedStatement ppstm = connect.prepareStatement(sql);//thuc hien cau lenh sql
-            ppstm.setString(1, "Not Used");//truyen gia tri thay doi vao
-            ppstm.executeUpdate();//thuc hien
+            Connection connect = ConnectToDatabase.getConnect();
+            PreparedStatement ppstm = connect.prepareStatement(sql);
+            ppstm.setString(1, "Not Used");
+            ppstm.executeUpdate();
         } catch (Exception e) {
             System.out.println("Hệ thống lỗi vì:" + e.getMessage());
-            return false;//neu trong qua trinh thuc hien xay ra ngoai le
+            return false;
         }
-        return true;//neu thay doi thanh cong
+        return true;
     }
 
-    /**
-     * Ham cap nhat bill cua khach hang
-     *
-     * @param total tong so luot mua
-     * @param idTaikhoan id tai khoan
-     * @return true neu thanh cong hoac false neu that bai
-     */
     public boolean updateBill(int total, int idTaikhoan) {
-        String sql = "update taikhoan set Soluotmua=? where IdTaikhoan=?";//cau lenh sql
-        Connection connect = ConnectToDatabase.getConnect();//lay ket noi
+        String sql = "update taikhoan set Soluotmua=? where IdTaikhoan=?";
+        Connection connect = ConnectToDatabase.getConnect();
         try {
-            PreparedStatement ppstm = connect.prepareStatement(sql);//thuc hien cau lenh sql
-            ppstm.setInt(1, total);//gia tri can update
-            ppstm.setInt(2, idTaikhoan);//id update
-            ppstm.executeUpdate();//thuc hien cau lenh
-            return true;//neu xoa thanh cong
+            PreparedStatement ppstm = connect.prepareStatement(sql);
+            ppstm.setInt(1, total);
+            ppstm.setInt(2, idTaikhoan);
+            ppstm.executeUpdate();
+            return true;
         } catch (Exception e) {
             System.out.println("Error when edit customer :" + e.getMessage());
         }
-        return false;//neu xoa that bai
+        return false;
     }
 
-    /**
-     * update thong tin tai khoan
-     *
-     * @param id id tai khoan can update
-     * @param obj cac thuoc tinh trong doi tuong cho update
-     * @return true neu thanh cong hoac false neu that bai
-     */
     public boolean edit(int id, Object obj) {
-        KhachHang kh = (KhachHang) obj;//mot doi tuong kh luu khach hang
-        mapKhachHang.replace(Integer.toString(id), kh);//thay the gia tri tuong ung trong map
-        String sql = "update taikhoan set Tentaikhoan=?,Matkhau=?,Tenkhachhang=?,Gioitinh=?,Sodienthoai=?,Email=?,Ngaysinh=?,Diachi=?,Soluotmua=?,Vaitro=?,Tinhtrangtaikhoan=? where IdTaikhoan=?";//cau lenh sql
-        Connection connect = ConnectToDatabase.getConnect();//lay ket noi
+        KhachHang kh = (KhachHang) obj;
+        mapKhachHang.replace(Integer.toString(id), kh);
+        String sql = "update taikhoan set Tentaikhoan=?,Matkhau=?,Tenkhachhang=?,Gioitinh=?,Sodienthoai=?,Email=?,Ngaysinh=?,Diachi=?,Soluotmua=?,Vaitro=?,Tinhtrangtaikhoan=? where IdTaikhoan=?";
+        Connection connect = ConnectToDatabase.getConnect();
         try {
-            PreparedStatement ppstm = connect.prepareStatement(sql);//thuc hien cau lenh
-            ppstm.setString(1, kh.getTaiKhoan());//tai khoan
-            ppstm.setString(2, kh.getMatKhau());//mat khau
-            ppstm.setString(3, kh.getTen());//ten
-            ppstm.setString(4, kh.getGioiTinh());//gioi tinh
-            ppstm.setString(5, kh.getSoDienThoai());//so dien thoai
-            ppstm.setString(6, kh.getEmail());//email
-            ppstm.setDate(7, kh.getNgaySinh());//ngay thang nam sinh
-            ppstm.setString(8, kh.getDiaChi());//dia chi
-            ppstm.setInt(9, Integer.parseInt(kh.getSoLuongMua()));//so luong mua
-            ppstm.setString(10, kh.getRole());//vai tro
-            ppstm.setString(11, kh.getAccountstatus());//tinh trang khach hang
-            ppstm.setInt(12, id);//id update
-            ppstm.executeUpdate();//thuc hien cau lenh
-            return true;//neu thanh cong
+            PreparedStatement ppstm = connect.prepareStatement(sql);
+            ppstm.setString(1, kh.getTaiKhoan());
+            ppstm.setString(2, kh.getMatKhau());
+            ppstm.setString(3, kh.getTen());
+            ppstm.setString(4, kh.getGioiTinh());
+            ppstm.setString(5, kh.getSoDienThoai());
+            ppstm.setString(6, kh.getEmail());
+            ppstm.setDate(7, kh.getNgaySinh());
+            ppstm.setString(8, kh.getDiaChi());
+            ppstm.setInt(9, Integer.parseInt(kh.getSoLuongMua()));
+            ppstm.setString(10, kh.getRole());
+            ppstm.setString(11, kh.getAccountstatus());
+            ppstm.setInt(12, id);
+            ppstm.executeUpdate();
+            return true;
         } catch (SQLException e) {
             System.out.println("Error when edit customer :" + e.getMessage());
         }
-        return false;//that bai
+        return false;
     }
 
-    /**
-     * Ham tim kiem khach hang
-     *
-     * @param name ten tai khoan can tim
-     * @return kh thong tin khach hang
-     */
     public KhachHang searchCustomer(String name) {
         try {
-            String sql = "SELECT * FROM `taikhoan` WHERE Tentaikhoan=?";//cau lenh sql
-            Connection connect = ConnectToDatabase.getConnect();//lay ket noi
-            PreparedStatement ppstm = connect.prepareStatement(sql);//thuc hien cau lenh
-            ppstm.setString(1, name);//set gia tri
-            ResultSet rs = ppstm.executeQuery();//rs lay gia tri
-            if (rs.first()) {//neu co gia tri
-                int IdTaikhoan = rs.getInt(1);//id tai khoan
-                String taiKhoan = rs.getString(2);//tai khoan
-                String matKhau = rs.getString(3);//mat khau
-                String ten = rs.getString(4);//ten 
-                String gioiTinh = rs.getString(5);//gioi tinh
-                String soDienThoai = rs.getString(6);//so dien thoai
-                String email = rs.getString(7);//email
-                Date ngaySinh = rs.getDate(8);//ngay sinh
-                String diaChi = rs.getString(9);//dia chi
-                String soLuongMua = rs.getString(10);//so luong mua
-                String role = rs.getString(11);//vai tro
-                String accountstatus = rs.getString(12);//tinh trang tai khoan
+            String sql = "SELECT * FROM `taikhoan` WHERE Tentaikhoan=?";
+            Connection connect = ConnectToDatabase.getConnect();
+            PreparedStatement ppstm = connect.prepareStatement(sql);
+            ppstm.setString(1, name);
+            ResultSet rs = ppstm.executeQuery();
+            if (rs.first()) {
+                int IdTaikhoan = rs.getInt(1);
+                String taiKhoan = rs.getString(2);
+                String matKhau = rs.getString(3);
+                String ten = rs.getString(4);
+                String gioiTinh = rs.getString(5);
+                String soDienThoai = rs.getString(6);
+                String email = rs.getString(7);
+                Date ngaySinh = rs.getDate(8);
+                String diaChi = rs.getString(9);
+                String soLuongMua = rs.getString(10);
+                String role = rs.getString(11);
+                String accountstatus = rs.getString(12);
                 KhachHang kh = new KhachHang(IdTaikhoan, taiKhoan, matKhau, ten, gioiTinh, soDienThoai, email, ngaySinh, diaChi,
-                        soLuongMua, role, accountstatus);//luu vao object
-                return kh;//neu thanh cong
+                        soLuongMua, role, accountstatus);
+                return kh;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return null;//that bai
+        return null;
     }
 
-    /**
-     * Ham thay doi mat khau
-     *
-     * @param idpw id tai khoan
-     * @param pass mat khau hien tai
-     * @param newPass mat khau moi
-     * @return true neu thay doi thanh cong hoac false neu that bai
-     */
     public boolean changePass(int idpw, String pass, String newPass) {
         try {
-            String sql = "SELECT * FROM `TaiKhoan` WHERE Matkhau=MD5(?)";//cau lenh sql
-            Connection connect = ConnectToDatabase.getConnect();//lay ket noi
-            PreparedStatement ppstm = connect.prepareStatement(sql);//thuc hien cau lenh sql
-            ppstm.setString(1, pass);//set gia tri
-            ResultSet rs = ppstm.executeQuery();//rs get gia tri
-            if (rs.first()) {//neu co gia tri
-                String sql2 = "UPDATE TaiKhoan set Matkhau=MD5(?) where IdTaikhoan=?";//cau lenh sql update mat khau
-                PreparedStatement ppstm2 = connect.prepareStatement(sql2);//thuc hien update mat khau
-                ppstm2.setString(1, newPass);//set gia tri (mat khau moi)
-                ppstm2.setInt(2, idpw);//set gia tri id tai khoan
-                ppstm2.executeUpdate();//thuc hien cau lenh
-                return true;//neu thanh cong
+            String sql = "SELECT * FROM `TaiKhoan` WHERE Matkhau=MD5(?)";
+            Connection connect = ConnectToDatabase.getConnect();
+            PreparedStatement ppstm = connect.prepareStatement(sql);
+            ppstm.setString(1, pass);
+            ResultSet rs = ppstm.executeQuery();
+            if (rs.first()) {
+                String sql2 = "UPDATE TaiKhoan set Matkhau=MD5(?) where IdTaikhoan=?";
+                PreparedStatement ppstm2 = connect.prepareStatement(sql2);
+                ppstm2.setString(1, newPass);
+                ppstm2.setInt(2, idpw);
+                ppstm2.executeUpdate();
+                return true;
             }
         } catch (SQLException ex) {
-            return false;//neu that bai
+            return false;
         }
-        return false;//neu that bai
+        return false;
     }
+
+    public static boolean sendMail(String to, String subject, String text) {
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("shopKHD@gmail.com", "khoi0939657217");
+            }
+        });
+        try {
+            Message message = new MimeMessage(session);
+            message.setHeader("Content-Type", "text/plain; charset=UTF-8");
+            message.setFrom(new InternetAddress("shopKHD@gmail.com"));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+            message.setSubject(subject);
+            message.setText(text);
+            Transport.send(message);
+        } catch (MessagingException e) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean passwordRecovery(String userName, String email) {
+        KhachHang kh = mapKhachHang.get(userName);
+        if (kh != null) {
+            sendMail(email, "passWord recorvery", kh.getMatKhau());
+            return true;
+        } else {
+            System.out.println("No account");
+        }
+        return false;
+    }
+
 }

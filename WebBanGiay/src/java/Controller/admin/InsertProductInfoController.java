@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author HAOVNCE140475
  */
 public class InsertProductInfoController extends HttpServlet {
 
@@ -32,7 +32,7 @@ public class InsertProductInfoController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -61,28 +61,28 @@ public class InsertProductInfoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idproductinfo = request.getParameter("txtId");
-        String mota1 = request.getParameter("txtDetail");
+        String idproductinfo = request.getParameter("txtId");   //get input id product
+        String mota1 = request.getParameter("txtDetail");   //get input detail product
         String DIR = "images\\";
         String filename = "", filename1 = "", filename2 = "", filename3 = "";
         try {
-            filename = DIR + request.getParameter("txtLogo1");
-            filename1 = DIR + request.getParameter("txtLogo2");
-            filename2 = DIR + request.getParameter("txtLogo3");
-            filename3 = DIR + request.getParameter("txtLogo4");
+            filename = DIR + request.getParameter("txtLogo1");   //get input image 1 product
+            filename1 = DIR + request.getParameter("txtLogo2");   //get input image 2  product
+            filename2 = DIR + request.getParameter("txtLogo3");   //get input image 3 product
+            filename3 = DIR + request.getParameter("txtLogo4");   //get input image 4 product
         } catch (Exception e) {
 
         }
         ChiTietSanPham ctsp = new ChiTietSanPham(idproductinfo, mota1, filename, filename1, filename2, filename3);
         ChiTietSanPhamDAO ctspDAO = new ChiTietSanPhamDAO();
-        boolean checkDuplicate = ctspDAO.checkProductIDDuplicate(idproductinfo);
-        if (!checkDuplicate) {
+        boolean checkDuplicate = ctspDAO.checkProductIDDuplicate(idproductinfo);        //check exist
+        if (!checkDuplicate) {      //if not exist, insert data
             ctspDAO.add(ctsp);
         } else {
-            response.sendRedirect("productInfo.jsp");
+            response.sendRedirect("productInfo.jsp");       //Redirect to productInfo.jsp
         }
 
-        response.sendRedirect("productInfo.jsp");
+        response.sendRedirect("productInfo.jsp");       //Redirect to productInfo.jsp
     }
 
     /**

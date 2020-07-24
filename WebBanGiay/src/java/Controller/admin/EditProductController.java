@@ -38,11 +38,11 @@ public class EditProductController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        if (id != null) {
-            SanPham sp = new SanPhamDAO().getProductByID(id);
-            request.setAttribute("infoProduct", sp);
-            RequestDispatcher requestproduct = request.getRequestDispatcher("updateProduct.jsp");
+        String id = request.getParameter("id");     //get Id product
+        if (id != null) {   //if id not null 
+            SanPham sp = new SanPhamDAO().getProductByID(id);       //call method use to get product data by id
+            request.setAttribute("infoProduct", sp);        //set attribute for product data
+            RequestDispatcher requestproduct = request.getRequestDispatcher("updateProduct.jsp");         //Redirec to updateProduct.jsp
             requestproduct.forward(request, response);
         }
     }
@@ -75,17 +75,17 @@ public class EditProductController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String idproduct = request.getParameter("txtId");
-        String name = request.getParameter("txtNameProduct");
-        String giagiam = request.getParameter("txtDiscount");
-        String giaban = request.getParameter("txtPrice");
-        String soluong = request.getParameter("txtQuantity");
-        String nhacungcap = request.getParameter("txtIdSupplier");
-        String maloai = request.getParameter("txtIdType");
-        String DIR = "images";
+        String idproduct = request.getParameter("txtId");       //get id product
+        String name = request.getParameter("txtNameProduct");       //get name product
+        String giagiam = request.getParameter("txtDiscount");       //get discount product
+        String giaban = request.getParameter("txtPrice");       //get price product
+        String soluong = request.getParameter("txtQuantity");       //get quantity product
+        String nhacungcap = request.getParameter("txtIdSupplier");       //get supplier product
+        String maloai = request.getParameter("txtIdType");       //get id type product
+        String DIR = "images";       //get link image product
 
         SanPhamDAO sd = new SanPhamDAO();
-        String filename = sd.getProductByID(idproduct).getHinhAnh();
+        String filename = sd.getProductByID(idproduct).getHinhAnh();        //get link image product
         try {
 
             String path = getServletContext().getRealPath("") + File.separator;
@@ -100,11 +100,11 @@ public class EditProductController extends HttpServlet {
         } catch (Exception e) {
 
         }
-        String soluongnhap = request.getParameter("txtImport");
-        String soluongban = request.getParameter("txtExport");
+        String soluongnhap = request.getParameter("txtImport");     //get input quantity
+        String soluongban = request.getParameter("txtExport");     //get solde quantity
         SanPham sp = new SanPham(idproduct, name, giagiam, giaban, soluong, nhacungcap, maloai, filename, soluongnhap, soluongban, "Already");
-        sd.edit(idproduct, sp);
-        response.sendRedirect("productsadmin.jsp");
+        sd.edit(idproduct, sp);     //add data after edit
+        response.sendRedirect("productsadmin.jsp");         //Redirect to productsadmin.jsp
     }
 
     /**

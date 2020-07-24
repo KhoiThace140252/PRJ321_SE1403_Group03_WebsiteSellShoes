@@ -32,9 +32,9 @@ public class DeleteAccountController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");//lay id khach hang
-        new KhachHangDAO().del(id);//thay doi trang thai khach hang
-        response.sendRedirect("account.jsp");//chuyen qua trang account.jsp
+        String id = request.getParameter("id");
+        new KhachHangDAO().del(id);
+        response.sendRedirect("account.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

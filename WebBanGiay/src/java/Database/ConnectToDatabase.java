@@ -16,53 +16,29 @@ import java.sql.Statement;
  * @author Admin
  */
 public class ConnectToDatabase {
-
-    /**
-     * tao mot constructor ko tham so
-     */
-    public ConnectToDatabase() {
-
-    }
-
-    /**
-     * lay connect
-     *
-     * @return connection ket noi
-     */
-    public static Connection getConnect() {
-        Connection connection = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");//tao driver
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/group3", "root", "");//ket noi den csdl       
-        } catch (SQLException | ClassNotFoundException e) {
-            System.out.println("Error when you connect to database!Error is: " + e.getMessage());
-        }
-        return connection;//ket noi
-    }
-
-    /**
-     * Ham thuc thi cau lenh sql
-     *
-     * @param sql cau lenh sql
-     * @throws Exception
-     */
-    public void excuteSql(String sql) throws Exception {
-        Connection connect = getConnect();//lay ket noi
-        Statement stmt = connect.createStatement();//tao stmt chuan bi thuc hien ket noi
-        stmt.executeUpdate(sql);//thuc hien cau lenh sql
-    }
-
-    /**
-     * Ham tao result get gia tri
-     *
-     * @param sql cau lenh sql
-     * @return rs
-     * @throws Exception
-     */
-    public ResultSet selectData(String sql) throws Exception {
-        Connection connect = getConnect();//lay ket noi
-        Statement stmt = connect.createStatement();//tao stmt chuan bi thuc hien ket noi
-        ResultSet rs = stmt.executeQuery(sql);//thuc hien cau lenh sql
-        return rs;//gia tri
-    }
+	public ConnectToDatabase(){
+		
+	}
+	public static Connection getConnect(){
+		Connection connection = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			connection=(Connection) DriverManager.getConnection("jdbc:mysql://localhost/group3", "root","");
+			System.out.println("Connect success");
+		} catch (SQLException | ClassNotFoundException e) {
+			System.out.println("Error when you connect to database!Error is: "+e.getMessage());
+		}
+		return connection;
+	}	
+	public  void excuteSql(String sql) throws Exception{
+		Connection connect =getConnect();
+		Statement stmt =    connect.createStatement();
+		stmt.executeUpdate(sql);
+	}
+	public ResultSet selectData(String sql) throws Exception{
+		Connection connect =getConnect();
+		Statement stmt =   connect.createStatement();
+		ResultSet rs=	stmt.executeQuery(sql);
+		return rs;
+	}
 }

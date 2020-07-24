@@ -77,13 +77,13 @@
                     <div class="col-xs-12 grid-gallery">
 
                     <%
-                        Map<String, SanPham> map = new SanPhamDAO().getTinhTrangSanPham();//tao mot map luu cac san pham co tinh trang la san sang
-                        Collection<SanPham> values = map.values();//lay gia tri trong map
-                        int i = 0;//khai bao bien i
-                        for (SanPham row : values) {//vong lap in cac gia tri trong map ra view
-                            i++;//tang i
-                            if (i > 12) {//in ra toi da 12 san pham thi dung lai
-                                break;//thoat
+                        Map<String, SanPham> map = new SanPhamDAO().getTinhTrangSanPham();;
+                        Collection<SanPham> values = map.values();
+                        int i = 0;
+                        for (SanPham row : values) {
+                            i++;
+                            if (i > 12) {
+                                break;
                             }
 
                     %>
@@ -91,13 +91,12 @@
                         <!-- normal -->
                         <div class="ih-item square effect3 bottom_to_top">
                             <div class="bottom-2-top">
-                                <div class="img"  ><img src="<%=row.getHinhAnh()%>"  alt="" class="img-responsive gri-wid"></div><!--In Hinh anh-->
+                                <div class="img"  ><img src="<%=row.getHinhAnh()%>"  alt="" class="img-responsive gri-wid"></div>
                                 <div class="info">
                                     <div class="pull-left styl-hdn">
-                                        <h3><%=row.getTenSanPham()%></h3><!--In Ten San Pham-->
+                                        <h3><%=row.getTenSanPham()%></h3>
                                     </div>
                                     <div class="pull-right styl-price">
-                                        <!--Truyen qua ben mua hang de luu san pham vao gio hang-->
                                         <p><a  href="CartController?idsanpham=<%=row.getMaSanPham()%>&BuyQuantity=1" class="item_add"><span class="glyphicon glyphicon-shopping-cart grid-cart" aria-hidden="true"></span> <span class=" item_price">$<%=row.getGiaTien()%></span></a></p>
                                     </div>
                                     <div class="clearfix"></div>
@@ -105,7 +104,6 @@
                         </div>
                         <!-- end normal -->
                         <div class="quick-view">
-                            <!--Truyen qua ben show chi tiet san pham-->
                             <a href="ShowProductController?iddetailproduct=<%= row.getMaSanPham()%>">Quick view</a>
                         </div>
                     </div> 

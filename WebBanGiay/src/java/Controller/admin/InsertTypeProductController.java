@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author HAOVNCE140475
  */
 @WebServlet(name = "InsertTypeProductController", urlPatterns = {"/InsertTypeProductController"})
 public class InsertTypeProductController extends HttpServlet {
@@ -74,13 +74,13 @@ public class InsertTypeProductController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idtype = request.getParameter("txtIDInsert");
-        String nametype = request.getParameter("txtNameTypeInsert");
-        String supplierId = request.getParameter("txtSupplierInsert");
-        String description = request.getParameter("txtDescriptionInsert");
+        String idtype = request.getParameter("txtIDInsert");    //get input id type of product
+        String nametype = request.getParameter("txtNameTypeInsert");    //get input name type of product
+        String supplierId = request.getParameter("txtSupplierInsert");    //get input ssupplier type of product
+        String description = request.getParameter("txtDescriptionInsert");    //get input description type of product
         LoaiSanPham lsp = new LoaiSanPham(idtype, nametype, supplierId, description);
-        new LoaiSanPhamDAO().add(lsp);
-        response.sendRedirect("typesProduct.jsp");
+        new LoaiSanPhamDAO().add(lsp);      // call method use to add data
+        response.sendRedirect("typesProduct.jsp");      //Redirect to typesProduct.jsp
     }
 
     /**

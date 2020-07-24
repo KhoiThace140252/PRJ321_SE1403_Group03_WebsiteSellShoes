@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Admin
+ * @author HAOVNCE140475
  */
 //@WebServlet(name = "EditProductInfoController", urlPatterns = {"/EditProductInfoController"})
 public class EditProductInfoController extends HttpServlet {
@@ -47,8 +47,8 @@ public class EditProductInfoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        ChiTietSanPham ctsp = new ChiTietSanPhamDAO().getDetailProductById(id);
+        String id = request.getParameter("id");     //get id product
+        ChiTietSanPham ctsp = new ChiTietSanPhamDAO().getDetailProductById(id);     //get all data about product
         request.setAttribute("infoDetailProduct", ctsp);
         RequestDispatcher requestdetailproduct = request.getRequestDispatcher("updateProductInfo.jsp");
         requestdetailproduct.forward(request, response);
@@ -66,39 +66,39 @@ public class EditProductInfoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idproductinfo = request.getParameter("txtId");
-        String mota1 = request.getParameter("txtDetail");
+        String idproductinfo = request.getParameter("txtId");       //get id product
+        String mota1 = request.getParameter("txtDetail");       //get product detail
         String DIR = "images\\";
-        ChiTietSanPham ctsp = new ChiTietSanPhamDAO().getDetailProductById(idproductinfo);
-        String oldfilename1 = ctsp.getHinhAnhChiTiet1();
-        String oldfilename2 = ctsp.getHinhAnhChiTiet2();
-        String oldfilename3 = ctsp.getHinhAnhChiTiet3();
-        String oldfilename4 = ctsp.getHinhAnhChiTiet4();
+        ChiTietSanPham ctsp = new ChiTietSanPhamDAO().getDetailProductById(idproductinfo);  //get product data
+        String oldfilename1 = ctsp.getHinhAnhChiTiet1();    //get link product image
+        String oldfilename2 = ctsp.getHinhAnhChiTiet2();    //get link product image
+        String oldfilename3 = ctsp.getHinhAnhChiTiet3();    //get link product image
+        String oldfilename4 = ctsp.getHinhAnhChiTiet4();    //get link product image
         String filename1 = "", filename2 = "", filename3 = "", filename4 = "";
         try {
-            filename1 = DIR + request.getParameter("txtLogo1");
-            filename2 = DIR + request.getParameter("txtLogo2");
-            filename3 = DIR + request.getParameter("txtLogo3");
-            filename4 = DIR + request.getParameter("txtLogo4");
-            for (int i = 0; i < 1; i++) {
-                if (request.getParameter("txtLogo1").isEmpty()) {
+            filename1 = DIR + request.getParameter("txtLogo1");         //get image input 
+            filename2 = DIR + request.getParameter("txtLogo2");         //get image input 
+            filename3 = DIR + request.getParameter("txtLogo3");         //get image input 
+            filename4 = DIR + request.getParameter("txtLogo4");         //get image input 
+            for (int i = 0; i < 1; i++) { //loop use to check empty
+                if (request.getParameter("txtLogo1").isEmpty()) {   //if image null, set new file is old file
                     filename1 = oldfilename1;
                 }
-                if (request.getParameter("txtLogo2").isEmpty()) {
+                if (request.getParameter("txtLogo2").isEmpty()) {   //if image null, set new file is old file
                     filename2 = oldfilename2;
                 }
-                if (request.getParameter("txtLogo3").isEmpty()) {
+                if (request.getParameter("txtLogo3").isEmpty()) {   //if image null, set new file is old file
                     filename3 = oldfilename3;
                 }
-                if (request.getParameter("txtLogo4").isEmpty()) {
+                if (request.getParameter("txtLogo4").isEmpty()) {   //if image null, set new file is old file
                     filename4 = oldfilename4;
                 }
             }
         } catch (Exception ex) {
         }
         ctsp = new ChiTietSanPham(idproductinfo, mota1, filename1, filename2, filename3, filename4);
-        new ChiTietSanPhamDAO().edit(idproductinfo, ctsp);
-        response.sendRedirect("productInfo.jsp");
+        new ChiTietSanPhamDAO().edit(idproductinfo, ctsp);//upadate data
+        response.sendRedirect("productInfo.jsp");       //Redirect to productInfo.jsp
     }
 
     /**

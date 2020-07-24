@@ -115,6 +115,8 @@ public final class contact_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <h3>Catch us</h3>\n");
       out.write("                    <div class=\"contact-content\">\n");
       out.write("                        <form action=\"ContactController\" method=\"post\">\n");
+      out.write("                        ");
+      out.write("\n");
       out.write("                             <input type=\"text\" class=\"textbox\" name=\"title\" value=\" Your Title\" onfocus=\"this.value = '';\" onblur=\"if (this.value == '') {\n");
       out.write("                                        this.value = 'Your Title';\n");
       out.write("                                    }\"><br>\n");
