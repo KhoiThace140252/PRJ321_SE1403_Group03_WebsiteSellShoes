@@ -70,9 +70,10 @@
                                         <thead>
                                             <tr>
                                                 <th>Feedback ID</th>
-                                                <th>Content</th>
+                                                <th>Title</th>                            
                                                 <th>Customer's Name</th>
-                                                <th>Email</th>                                            
+                                                <th>Email</th>  
+                                                <th>Content</th>
                                                 <th>Date</th>
                                                 <th></th>
                                             </tr>
@@ -84,9 +85,9 @@
                                                 Collection<PhanHoi> values = mapPhanHoi.values();
                                                 for (PhanHoi row : values) {//get data from map and print out
 
-
                                             %>
 
+                                            <td><%=row.getIdphanhoi()%></td>
                                             <td><%=row.getChude()%></td>
                                             <td><%=row.getNoidung()%></td>
                                             <td><%=row.getTentaikhoan()%></td>

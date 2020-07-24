@@ -58,7 +58,7 @@
                         <!--New Password -->
                         <div class="form-group">
                             <div class="form-label-group">
-                                <input type="password"  name="Newpassword" value="" onChange="onChange()" class="form-control" >
+                                <input type="password"  name="Newpassword" value="" onChange="onChange()" required="" class="form-control" >
                                 <label>New Password</label>
                             </div>
                         </div>
@@ -86,10 +86,15 @@
             function onChange() {
                 const password = document.querySelector('input[name=Newpassword]');
                 const confirm = document.querySelector('input[name=Confirmpassword]');
-                if (confirm.value === password.value) {
-                    confirm.setCustomValidity('');
-                } else {
-                    confirm.setCustomValidity('Passwords do not match');
+                if (password != null && confirm != null) {
+                    if (confirm.value === password.value) {
+                        confirm.setCustomValidity('');
+                    } else {
+                        confirm.setCustomValidity('Passwords do not match');
+                    }
+                }
+                else{
+                    confirm.setCustomValidity('Passwords do not null');
                 }
             }
         </script>

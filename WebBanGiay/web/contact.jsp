@@ -73,23 +73,15 @@
                     <div class="contact-content">
                         <form action="ContactController" method="post">
                         <%-- input title--%>
-                        <input type="text" class="textbox" name="title" value=" Your Title" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                    this.value = 'Your Title';
-                                }"><br>
+                        <input type="text" class="textbox" name="title" placeholder="Your Title" required="" ><br>
                         <%-- input name--%>
-                        <input type="text" class="textbox" name="name" value=" Your Name" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                    this.value = 'Your Name';
-                                }"><br>
+                        <input type="text" class="textbox" name="name" placeholder="Your Name" required=""><br>
                         <%-- input email--%>
-                        <input type="text" class="textbox" name="email" value="Your E-Mail" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                    this.value = 'Your E-Mail';
-                                }"><br>
+                        <input type="email" class="textbox" name="email"  placeholder="Your Email" required=""><br>
                         <div class="clear"> </div>
                         <div>
                             <%-- input message--%>
-                            <textarea value="Message:" name="message" onfocus="this.value = '';" onblur="if (this.value == '') {
-                                        this.value = 'Your Message ';
-                                    }">Your Message</textarea><br>
+                            <textarea value="Message:" name="message" required="" placeholder="Your Message"></textarea><br>
                         </div>	
                         <div class="submit"> 
                             <input class="btn btn-default cont-btn" type="submit" value="SEND " />

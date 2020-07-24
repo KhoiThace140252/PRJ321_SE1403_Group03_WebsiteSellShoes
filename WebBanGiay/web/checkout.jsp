@@ -106,7 +106,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             out.print("<tr>");
                             out.print("<td><img src='" + sp.getHinhAnh() + "'/></td>");
                             out.print("<td>" + sp.getTenSanPham() + "</a></td>");
-                            out.print("<td>" + sp.getGiaTien() + "</td>");
+                            out.print("<td>" + "$" + sp.getGiaTien() + "</td>");
                             out.print("<td>" + sp.getGiaGiam() + "</td>");
                             out.print("<td>" + quantity + "</td>");
                             total += (double) quantity * (Integer.parseInt(sp.getGiaTien()) - Integer.parseInt(sp.getGiaGiam()) * Integer.parseInt(sp.getGiaTien()) / 100);
@@ -139,7 +139,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <a class="continue" href="index.jsp">Continue to basket</a>
                     <ul class="total_price">
                         <li class="last_price"> <h4>TOTAL</h4></li>	
-                        <li class="last_price"><span><%=total%></span></li>
+                        <li class="last_price"><span>$<%=total%></span></li>
                         <div class="clearfix"> </div>
                     </ul> 
                     <div class="clearfix"></div>
