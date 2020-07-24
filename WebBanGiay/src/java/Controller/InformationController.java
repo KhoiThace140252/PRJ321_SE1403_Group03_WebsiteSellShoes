@@ -66,45 +66,45 @@ public class InformationController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (request.getParameter("btnChangeInformation") != null) {
-            String idaccount = request.getParameter("txtInforId");
-            String user = request.getParameter("txtInforUser");
-            String pass = request.getParameter("txtInforPass");
-            String fullname = request.getParameter("txtInforName");
-            String gender = request.getParameter("txtInforGender");
-            String phone = request.getParameter("txtInforPhone");
-            String email = request.getParameter("txtInforEmail");
-            Date birth = Date.valueOf(request.getParameter("txtInforBirth"));
-            String address = request.getParameter("txtInforAddress");
-            String number = request.getParameter("txtInforNumber");
-            String role = request.getParameter("txtInforRole");
+            String idaccount = request.getParameter("txtInforId");//lay yeu cau cua doi tuong txtInfoId
+            String user = request.getParameter("txtInforUser");// lay yeu cau cua doi tuong txtInforUser
+            String pass = request.getParameter("txtInforPass");//lay yeu cau cua doi tuong txtInforPass
+            String fullname = request.getParameter("txtInforName");//lay yeu cau cua doi tuong txtInforName
+            String gender = request.getParameter("txtInforGender");//lay yeu cau cua doi tuong InforGender
+            String phone = request.getParameter("txtInforPhone");//lay yeu cau cua doi tuong txtInforPhone
+            String email = request.getParameter("txtInforEmail");//lay yeu cau cua doi tuong InforEmail
+            Date birth = Date.valueOf(request.getParameter("txtInforBirth"));//lay yeu cau cua doi tuong txtInforBirth
+            String address = request.getParameter("txtInforAddress");//lay yeu cau cua doi tuong txtInforAddress
+            String number = request.getParameter("txtInforNumber");//lay yeu cau cua doi tuong txtInforNumber
+            String role = request.getParameter("txtInforRole");// lay yeu cau cua doi tuong txtInforRole
             KhachHang kh = new KhachHang(Integer.parseInt(idaccount), user, pass, fullname, gender, phone, email, birth, address, number, role,"Used");
-            new KhachHangDAO().edit(Integer.parseInt(idaccount), kh);
-            Cookie username1 = new Cookie("username", user);
+            new KhachHangDAO().edit(Integer.parseInt(idaccount), kh);// id cua khach hang la so nguyen
+            Cookie username1 = new Cookie("username", user);//tao moi cookie
             Cookie id1 = new Cookie("ID", String.valueOf(kh.getIdTaikhoan()));
             username1.setMaxAge(60 * 60 * 24);
             id1.setMaxAge(60 * 60 * 24);
             response.addCookie(username1);
             response.addCookie(id1);
-            response.sendRedirect("index.jsp");
-        } else if (request.getParameter("btnChangePassword") != null) {
-            String currentpw = request.getParameter("Currentpassword");
-            String newpw = request.getParameter("Newpassword");
-            String idpw = request.getParameter("IdCookieUser");
-            boolean checkChangePW = new KhachHangDAO().changePass(Integer.parseInt(idpw), currentpw, newpw);
-            if (checkChangePW) {
+            response.sendRedirect("index.jsp");//gui yeu cau ve trang index.jsp
+        } else if (request.getParameter("btnChangePassword") != null) {//neu yeu cau thay doi pass khac rong thi thuc thi
+            String currentpw = request.getParameter("Currentpassword");// lay gia tri cua Currentpassword
+            String newpw = request.getParameter("Newpassword");//lay gia tri cua Newpassword
+            String idpw = request.getParameter("IdCookieUser");// lay gia tri cua IdCookieUser
+            boolean checkChangePW = new KhachHangDAO().changePass(Integer.parseInt(idpw), currentpw, newpw);//check password cua user
+            if (checkChangePW) {//neu khach hang doi password thi gui yeu cau ve index.jsp
                 response.sendRedirect("index.jsp");
             } else {
-                response.sendRedirect("changepassword.jsp");
+                response.sendRedirect("changepassword.jsp");// nguoc lai thi quay lai trang changepassword.jsp
             }
-        } else if (request.getParameter("btnChangePasswordAdmin") != null) {
-            String currentpw = request.getParameter("Currentpasswordadmin");
-            String newpw = request.getParameter("Newpasswordadmin");
-            String idpw = request.getParameter("IdCookieUseradmin");
-            boolean checkChangePW = new KhachHangDAO().changePass(Integer.parseInt(idpw), currentpw, newpw);
+        } else if (request.getParameter("btnChangePasswordAdmin") != null) {//neu admin muon thay doi password thi thuc thi
+            String currentpw = request.getParameter("Currentpasswordadmin");// lay gia tri cua Currentpasswordadmin
+            String newpw = request.getParameter("Newpasswordadmin");// lay gia tri cua Newpasswordadmin
+            String idpw = request.getParameter("IdCookieUseradmin");// lay gia tri cua IdCookieUseradmin
+            boolean checkChangePW = new KhachHangDAO().changePass(Integer.parseInt(idpw), currentpw, newpw);// check password after change
             if (checkChangePW) {
-                response.sendRedirect("indexadmin.jsp");
+                response.sendRedirect("indexadmin.jsp");// neu co doi mat khau thi chuyen ve index
             } else {
-                response.sendRedirect("passwordadmin.jsp");
+                response.sendRedirect("passwordadmin.jsp");// nguoc lai thi tro nguoc ve trang passwordadmin.jsp
             }
         }
     }
