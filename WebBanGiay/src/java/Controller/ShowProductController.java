@@ -38,15 +38,16 @@ public class ShowProductController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            String idproductshow = request.getParameter("iddetailproduct");
-            ChiTietSanPham ctsp = new ChiTietSanPhamDAO().getDetailProductById(idproductshow);
+        
+            String idproductshow = request.getParameter("iddetailproduct"); // lay gia tri tu doi tuong iddetailproduct
+            ChiTietSanPham ctsp = new ChiTietSanPhamDAO().getDetailProductById(idproductshow);// tao chi tiet san pham vaf lay gia tri
             SanPham sp=new SanPhamDAO().getProductByID(idproductshow);
             String supplier=sp.getMaNhaCungCap();
             NhaCungCap ncc=new NhaCungCapDAO().getSupplierByID(supplier);
-            request.setAttribute("showfromindex1", ctsp);
-            request.setAttribute("showfromindex2", sp);
-            request.setAttribute("showfromindex3", ncc);
-            RequestDispatcher requestshowfromindex = request.getRequestDispatcher("single.jsp");
+            request.setAttribute("showfromindex1", ctsp);//gui yeu cau ve showfromindex1
+            request.setAttribute("showfromindex2", sp);// gui yeu cau ve showfromindex2
+            request.setAttribute("showfromindex3", ncc);// gui yeu cau ve showfromindex3
+            RequestDispatcher requestshowfromindex = request.getRequestDispatcher("single.jsp");// gui yeu cau ve single.jsp
             requestshowfromindex.forward(request, response);
         
     }

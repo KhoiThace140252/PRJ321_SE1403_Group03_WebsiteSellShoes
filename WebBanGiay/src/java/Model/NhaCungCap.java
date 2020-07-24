@@ -11,13 +11,13 @@ package Model;
  */
 public class NhaCungCap {
 
-    String maNhaCungCap;
-    String tenNhaCungCap;
-    String diaChi;
-    String soDienThoai;
-    String logo;
-    String mota;
-    String tinhtrangncc;
+    String maNhaCungCap;// khai bao bien ma nha cung cap
+    String tenNhaCungCap; //khai bao bien ten nha cung cap
+    String diaChi;//khai bao bien dia chi
+    String soDienThoai;//khai bao bien so dien thoai
+    String logo; //khai bao bien logo
+    String mota;//khai bao bien mo ta
+    String tinhtrangncc; //khai bao bien tinh trang nha cung cap
 
     /**
      * tao constructor

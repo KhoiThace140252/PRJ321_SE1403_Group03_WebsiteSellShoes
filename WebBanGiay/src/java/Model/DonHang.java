@@ -13,16 +13,16 @@ import java.sql.Date;
  */
 public class DonHang {
 
-    String id;
-    String tenKhachHang;
-    String tenSanPham;
-    String tongSoLuong;
-    String tongTien;
-    Date ngayMua;
-    String diaChi;
-    String soDienThoai;
-    String email;
-    String tinhTrangDonHang;
+    String id;//khai bao bien id
+    String tenKhachHang; //khai bao bien ten khach hang
+    String tenSanPham;//khai bao bien ten san pham
+    String tongSoLuong;//khai bao bien tong so luong
+    String tongTien;//khai bao bien tong tien
+    Date ngayMua;//khai bao bien ngay mua
+    String diaChi;//khai bao bien dia chi
+    String soDienThoai;//khai bao bien so dien thoai
+    String email;//khai bao bien email
+    String tinhTrangDonHang;//khai bao bien tinh trang son hang
 
     /**
      * tao constructor 

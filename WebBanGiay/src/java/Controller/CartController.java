@@ -34,17 +34,16 @@ public class CartController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String idsanpham = request.getParameter("idsanpham");
+        String idsanpham = request.getParameter("idsanpham");// lay gai tri cua doi tuong idsanpham
         HashMap<String, Integer> Cart = new HashMap<String, Integer>();
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession();// tao 1 cai session dung de lay yeu cau
         if (idsanpham != null) {
-            //get session
-            //check id is in session or not
-            int quantity = Integer.parseInt(request.getParameter("BuyQuantity"));
+            //lay session
+            //kiem tra id 
+            int quantity = Integer.parseInt(request.getParameter("BuyQuantity"));// khai bao bien quantity la so nguyen
            
             if (session.getAttribute("listCart") != null) {
-                //if id in session, quantity += 1
-
+                //neu id co trong session, so luong +1
                 Cart = (HashMap<String, Integer>) session.getAttribute("listCart");
 
                 if (Cart.containsKey(idsanpham)) {
@@ -57,17 +56,17 @@ public class CartController extends HttpServlet {
                     session.setAttribute("listCart", Cart);
                 }
             } else {
-                //create new attribute with quantity = 1
-
+                // gan gia tri cho list cart
+             
                 Cart.put(idsanpham, quantity);
                 session.setAttribute("listCart", Cart);
             }
-            //if user want to remove all
+            //xoa all neu nguoi dung muon
         } else if (request.getParameter("removeall").equals("clear")) {
             Cart.remove(idsanpham);
             session.setAttribute("listCart", Cart);
-            //if user buy from detailproduct (single.jsp)
-        }
+           
+        }//neu nguoi ding muon mua ngay thi thuc thi
         String buy = request.getParameter("BuyNow");
         if (buy != null) {
             response.sendRedirect("checkout.jsp");
