@@ -66,6 +66,7 @@
                         <!--Total-->
                         <div class="form-group">
                             <div class="form-label-group">
+                                <%--Get total price--%>
                                 <input type="hidden"  name="TotalBuy" value="<%= request.getParameter("total") %>" class="form-control" >
                                
                             </div>

@@ -3,10 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Chuyên%20Ngành/Java%20Web/PRJ321_SE1403_Group03_WebsiteSellShoes/PRJ321_SE1403_Group03_WebsiteSellShoes/PRJ321_SE1403_Group03_WebsiteSellShoes/WebBanGiay/src/java/Dao/KhachHangDAO.java</file>
-            <file>file:/E:/Chuyên%20Ngành/Java%20Web/PRJ321_SE1403_Group03_WebsiteSellShoes/PRJ321_SE1403_Group03_WebsiteSellShoes/PRJ321_SE1403_Group03_WebsiteSellShoes/WebBanGiay/web/changepassword.jsp</file>
-            <file>file:/E:/Chuyên%20Ngành/Java%20Web/PRJ321_SE1403_Group03_WebsiteSellShoes/PRJ321_SE1403_Group03_WebsiteSellShoes/PRJ321_SE1403_Group03_WebsiteSellShoes/WebBanGiay/src/java/Controller/InformationController.java</file>
-            <file>file:/E:/Chuyên%20Ngành/Java%20Web/PRJ321_SE1403_Group03_WebsiteSellShoes/PRJ321_SE1403_Group03_WebsiteSellShoes/PRJ321_SE1403_Group03_WebsiteSellShoes/WebBanGiay/web/index.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/insertProduct.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/index.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/checkout.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/buy.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/insertProductInfo.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/feedback.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/indexadmin.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/passwordadmin.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/insertTypeProduct.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/contact.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/order.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/information.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/account.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/productInfo.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/changepassword.jsp</file>
+            <file>file:/C:/Users/huuph/Desktop/PRJ321_SE1403_Group03_WebsiteSellShoes-master/WebBanGiay/web/insertSupplier.jsp</file>
         </group>
     </open-files>
 </project-private>

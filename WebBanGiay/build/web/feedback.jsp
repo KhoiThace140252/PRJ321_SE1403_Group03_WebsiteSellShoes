@@ -70,10 +70,9 @@
                                         <thead>
                                             <tr>
                                                 <th>Feedback ID</th>
-                                                <th>Title</th>                            
-                                                <th>Customer's Name</th>
-                                                <th>Email</th>  
                                                 <th>Content</th>
+                                                <th>Customer's Name</th>
+                                                <th>Email</th>                                            
                                                 <th>Date</th>
                                                 <th></th>
                                             </tr>
@@ -81,13 +80,13 @@
                                         <tbody>                  
                                             <tr>
                                             <%
-                                                Map<String, PhanHoi> mapPhanHoi = new PhanHoiDAO().loadPhanHoi();
+                                                Map<String, PhanHoi> mapPhanHoi = new PhanHoiDAO().loadPhanHoi();       //call method use to get data and add to map
                                                 Collection<PhanHoi> values = mapPhanHoi.values();
                                                 for (PhanHoi row : values) {//get data from map and print out
 
+
                                             %>
 
-                                            <td><%=row.getIdphanhoi()%></td>
                                             <td><%=row.getChude()%></td>
                                             <td><%=row.getNoidung()%></td>
                                             <td><%=row.getTentaikhoan()%></td>
@@ -95,6 +94,7 @@
                                             <td><%=row.getCurrentDate()%></td>
 
                                             <td>
+                                                <%--Click to delete feedback--%>
                                                 <a class="nav-link" href="DeleteFeedbackController?id=<%=row.getIdphanhoi()%>"><i class="fas fa-fw fa-trash"></i></a>
                                             </td>
                                         </tr>

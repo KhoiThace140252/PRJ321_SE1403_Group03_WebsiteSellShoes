@@ -85,12 +85,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
                 <%
                     HashMap<String, Integer> cart = (HashMap<String, Integer>) session.getAttribute("listCart");
-                    double total = 0.0;
-                    String idremove = request.getParameter("remove");
-                    if (idremove != null) {
+                    double total = 0.0;     //variable use to store total
+                    String idremove = request.getParameter("remove");       
+                    if (idremove != null) { 
                         cart.remove(idremove);
                     }
-                    if (cart != null) {
+                    if (cart != null) {     //if cart not null, print add product in card
                         out.print("<table class='table table-bordered'>");
                         out.print("<tr>");
                         out.print("<th>" + "Image" + "</th>");
@@ -100,16 +100,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         out.print("<th>" + "Quantity" + "</th>");
                         out.print("<th></th>");
                         out.print("</tr>");
-                        for (String i : cart.keySet()) {
-                            int quantity = cart.get(i);
-                            SanPham sp = new SanPhamDAO().getProductByID(i);
+                        for (String i : cart.keySet()) {    //loop use to show list product 
+                            int quantity = cart.get(i);     //count quantity
+                            SanPham sp = new SanPhamDAO().getProductByID(i);        //call method use to get data
                             out.print("<tr>");
-                            out.print("<td><img src='" + sp.getHinhAnh() + "'/></td>");
-                            out.print("<td>" + sp.getTenSanPham() + "</a></td>");
-                            out.print("<td>" + "$" + sp.getGiaTien() + "</td>");
-                            out.print("<td>" + sp.getGiaGiam() + "</td>");
-                            out.print("<td>" + quantity + "</td>");
+                            out.print("<td><img src='" + sp.getHinhAnh() + "'/></td>");     //show data
+                            out.print("<td>" + sp.getTenSanPham() + "</a></td>");     //show data
+                            out.print("<td>" + sp.getGiaTien() + "</td>");     //show data
+                            out.print("<td>" + sp.getGiaGiam() + "</td>");     //show data
+                            out.print("<td>" + quantity + "</td>");     //show data
+                            //calculate total price
                             total += (double) quantity * (Integer.parseInt(sp.getGiaTien()) - Integer.parseInt(sp.getGiaGiam()) * Integer.parseInt(sp.getGiaTien()) / 100);
+                            //click to remove
                             out.print("<td><a href='?remove=" + i + "'>Remove</a></td>");
                             out.print("</tr>");
                         }
@@ -139,7 +141,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <a class="continue" href="index.jsp">Continue to basket</a>
                     <ul class="total_price">
                         <li class="last_price"> <h4>TOTAL</h4></li>	
-                        <li class="last_price"><span>$<%=total%></span></li>
+                        <li class="last_price"><span><%=total%></span></li>
                         <div class="clearfix"> </div>
                     </ul> 
                     <div class="clearfix"></div>

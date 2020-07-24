@@ -85,9 +85,9 @@
                                         <tbody>   
                                             <tr>
                                             <%
-                                                Map<String, KhachHang> mapKhachHang = new KhachHangDAO().loadData();
+                                                Map<String, KhachHang> mapKhachHang = new KhachHangDAO().loadData();    //recall map use to load data
                                                 Collection<KhachHang> values = mapKhachHang.values();
-                                                for (KhachHang row : values) {
+                                                for (KhachHang row : values) {      //loop use to show data
                                             %>
                                             <td><%=row.getIdTaikhoan()%></td>
                                             <td><%=row.getTaiKhoan()%></td>                                
@@ -101,7 +101,9 @@
                                             <td><%=row.getRole()%></td>
                                             <td><%=row.getAccountstatus()%></td>
                                             <td>
+                                                <%--Click to edit--%>
                                                 <a class="nav-link"  href="EditAccountController?id=<%=row.getIdTaikhoan()%>" id="submit"><i class="fas fa-fw fa-pen"></i></a>                                                             
+                                                    <%--Click to delete--%>
                                                 <a class="nav-link" href="DeleteAccountController?id=<%=row.getIdTaikhoan()%>" ><i class="fas fa-fw fa-trash"></i></a>
                                             </td>
                                         </tr>

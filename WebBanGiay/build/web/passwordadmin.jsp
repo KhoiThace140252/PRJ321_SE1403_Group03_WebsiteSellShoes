@@ -9,7 +9,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,10 +35,11 @@
                 <div class="card-body">
                     <form id="edit-form-update" action="InformationController" method="post">    
                         <%
-                            Cookie[] cookies = request.getCookies();
-                            if (cookies.length > 1) {
-                                for (Cookie cookie : cookies) {
-                                    if (cookie.getName().equals("ID")) {
+                            Cookie[] cookies = request.getCookies();        //get cookies and add to array
+                            if (cookies.length > 1) {       //check null cookies
+                                for (Cookie cookie : cookies) {     //read cookies
+                                    if (cookie.getName().equals("ID")) {    //find cookies
+                                        //call method and get account data
                                         KhachHang kh = new KhachHangDAO().getAccountByID(Integer.parseInt(cookie.getValue()));
 
                         %>
@@ -83,10 +84,10 @@
             </div>
         </div>   
         <script>
-            function onChange() {
+            function onChange() {       //funtion use to check input password
                 const password = document.querySelector('input[name=Newpassword]');
                 const confirm = document.querySelector('input[name=Confirmpassword]');
-                if (confirm.value === password.value) {
+                if (confirm.value === password.value) {     //check confirm password == password
                     confirm.setCustomValidity('');
                 } else {
                     confirm.setCustomValidity('Passwords do not match');
