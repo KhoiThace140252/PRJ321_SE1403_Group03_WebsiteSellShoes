@@ -83,9 +83,10 @@
                                         </thead>                                 
                                         <tbody> 
                                         <%
+                                            //call method get data and add to map
                                             Map<String, DonHang> mapDonHang = new DonHangDAO().layDuLieuTuDatabase();
                                             Collection<DonHang> values = mapDonHang.values();
-                                            for (DonHang row : values) {
+                                            for (DonHang row : values) {        //loops use to show list order
                                         %>
                                         <tr>
                                             <td><%=row.getId()%></td>
@@ -99,7 +100,9 @@
                                             <td><%=row.getEmail()%></td>
                                             <td><%=row.getTinhTrangDonHang()%></td>
                                             <td>
+                                                <%--Click to edit--%>
                                                 <a class="nav-link" href="EditOrderController?id=<%=row.getId()%>" id="submit"><i class="fas fa-fw fa-pen"></i></a>                                                                  
+                                                    <%--Click to delete--%>
                                                 <a class="nav-link" href="DeleteOrderController?id=<%=row.getId()%>"><i class="fas fa-fw fa-trash"></i></a>
                                             </td>
                                         </tr>

@@ -11,12 +11,9 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -112,20 +109,6 @@ public class PhanHoiDAO implements ObjectDAO {
         return true;//neu thanh cong
     }
 
-    @Override
-    public boolean del(String id) {
-         try {
-             String sql="DELETE FROM `phanhoi` WHERE Idphanhoi=?";
-             Connection getConnect = ConnectToDatabase.getConnect();//lay ket noi
-             PreparedStatement ppstm = getConnect.prepareStatement(sql);//thuc hien cau lenh sql
-             ppstm.setInt(1,Integer.parseInt(id));
-             ppstm.executeUpdate();
-             return true;
-         } catch (SQLException ex) {
-             Logger.getLogger(PhanHoiDAO.class.getName()).log(Level.SEVERE, null, ex);
-         }
-         return false;
-    } 
     /**
      * Ham lay chu de
      *

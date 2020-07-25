@@ -35,10 +35,10 @@
                 <div class="card-body">
                     <form id="edit-form-update" action="InformationController" method="post">    
                         <%
-                            Cookie[] cookies = request.getCookies();
-                            if (cookies.length > 1) {
-                                for (Cookie cookie : cookies) {
-                                    if (cookie.getName().equals("ID")) {
+                            Cookie[] cookies = request.getCookies();        //get cookies
+                            if (cookies.length > 1) {   //check cookies if not null
+                                for (Cookie cookie : cookies) { //loop use to search cookies
+                                    if (cookie.getName().equals("ID")) {        //find cookies if exits
                                         KhachHang kh = new KhachHangDAO().getAccountByID(Integer.parseInt(cookie.getValue()));
 
                         %>
@@ -58,7 +58,7 @@
                         <!--New Password -->
                         <div class="form-group">
                             <div class="form-label-group">
-                                <input type="password"  name="Newpassword" value="" onChange="onChange()" required="" class="form-control" >
+                                <input type="password"  name="Newpassword" value="" onChange="onChange()" class="form-control" >
                                 <label>New Password</label>
                             </div>
                         </div>
@@ -86,15 +86,10 @@
             function onChange() {
                 const password = document.querySelector('input[name=Newpassword]');
                 const confirm = document.querySelector('input[name=Confirmpassword]');
-                if (password != null && confirm != null) {
-                    if (confirm.value === password.value) {
-                        confirm.setCustomValidity('');
-                    } else {
-                        confirm.setCustomValidity('Passwords do not match');
-                    }
-                }
-                else{
-                    confirm.setCustomValidity('Passwords do not null');
+                if (confirm.value === password.value) {
+                    confirm.setCustomValidity('');
+                } else {
+                    confirm.setCustomValidity('Passwords do not match');
                 }
             }
         </script>

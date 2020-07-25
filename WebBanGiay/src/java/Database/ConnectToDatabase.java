@@ -33,7 +33,7 @@ public class ConnectToDatabase {
         Connection connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");//tao driver
-            connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/group3", "root", "");//ket noi den csdl       
+            connection = (Connection) DriverManager.getConnection("jdbc:mysql://localhost//node229396-webbangiay.j.layershift.co.uk", "root", "ZIOnrl19459");//ket noi den csdl       
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("Error when you connect to database!Error is: " + e.getMessage());
         }

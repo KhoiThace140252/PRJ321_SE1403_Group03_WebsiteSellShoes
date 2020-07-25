@@ -49,12 +49,12 @@
                 </div>
             </div>
         <%
-            String buySuccess = request.getParameter("buySuccess");
-            if (buySuccess != null) {
-                if (buySuccess.equals("true")) {
+            String buySuccess = request.getParameter("buySuccess");     //get status
+            if (buySuccess != null) {   //if status not null
+                if (buySuccess.equals("true")) {    //if status is true, show message success
                     out.print("<script>alert('Purchase Successful')</script>");
                     out.print("<script>location.href='/WebBanGiay/index.jsp'</script>");
-                } else {
+                } else {    //statrus is false , show message false
                     out.print("<script>alert('Purchase Failed')</script>");
                     out.print("<script>location.href='/WebBanGiay/index.jsp'</script>");
                 }
@@ -135,12 +135,12 @@
         <div class="col-xs-12 shop-grid">
             <div class="container">
                 <%
-                    Map<String, SanPham> map = new SanPhamDAO().getTinhTrangSanPham();;
+                    Map<String, SanPham> map = new SanPhamDAO().getTinhTrangSanPham();//Call method and get data
                     Collection<SanPham> values = map.values();
-                    int i = 0;
-                    for (SanPham row : values) {
+                    int i = 0;  //count product
+                    for (SanPham row : values) {    //loop use to show data
                         i++;
-                        if (i > 6) {
+                        if (i > 6) {    //if product bigger than 6 , break
                             break;
                         }
 

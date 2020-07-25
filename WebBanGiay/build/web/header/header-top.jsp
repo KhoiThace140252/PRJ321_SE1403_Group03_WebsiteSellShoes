@@ -35,29 +35,25 @@
                 </div>
             </div>
             <div class="login-bars">
-
-                <%
-                    Cookie[] cookies = request.getCookies();
-                    if (cookies.length > 1) {
-                        for (Cookie cookie : cookies) {
-                            if (cookie.getName().equals("ID")) {
-                                KhachHang kh = new KhachHangDAO().getAccountByID(Integer.parseInt(cookie.getValue()));
-                                if (new KhachHangDAO().checkRole(kh.getTaiKhoan(), kh.getMatKhau())==false) {
+               
+                    <%
+                        Cookie[] cookies = request.getCookies();
+                        if (cookies.length > 1) {
+                            for (Cookie cookie : cookies) {
+                                if (cookie.getName().equals("ID")) {
+                                    KhachHang kh = new KhachHangDAO().getAccountByID(Integer.parseInt(cookie.getValue()));
+                                    
                                     out.print(" <a class='btn btn-default log-bar' href='information.jsp' role='button'>" + "Welcome," + kh.getTen() + "</a>");
                                     out.print("<a class='btn btn-default log-bar' href='LoginController?action=Logout' role='button'>" + "Logout" + "</a>");
-                                }else{
-                                    response.sendRedirect("indexadmin.jsp");
-                                    break;
+
                                 }
-
                             }
+                        } else {
+                            out.print("<a class='btn btn-default log-bar' href='register.jsp' role='button'>" + "Sign up" + "</a>");
+                            out.print("<a class='btn btn-default log-bar' href='signup.jsp' role='button'>" + "Login" + "</a>");
                         }
-                    } else {
-                        out.print("<a class='btn btn-default log-bar' href='register.jsp' role='button'>" + "Sign up" + "</a>");
-                        out.print("<a class='btn btn-default log-bar' href='signup.jsp' role='button'>" + "Login" + "</a>");
-                    }
-                %>
-
+                    %>
+               
                 <div class="cart box_1">
                     <a href="checkout.jsp">
                         <h3>

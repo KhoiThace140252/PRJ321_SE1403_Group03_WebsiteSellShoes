@@ -37,11 +37,13 @@
                 <div class="card-body">
                     <form id="edit-form-update" action="InformationController" method="post">        
                         <%
-                            Cookie[] cookies = request.getCookies();
-                            if (cookies.length > 1) {
-                                for (Cookie cookie : cookies) {
-                                    if (cookie.getName().equals("ID")) {
+                            Cookie[] cookies = request.getCookies();        //get cookies and add to array
+                            if (cookies.length > 1) {   //check cookies not null
+                                for (Cookie cookie : cookies) {     //read cookies
+                                    if (cookie.getName().equals("ID")) {    //check cookies 
+                                        //call method use to get account data
                                         KhachHang kh = new KhachHangDAO().getAccountByID(Integer.parseInt(cookie.getValue()));
+                                        //call method get order data
                                         DonHang dh = new DonHangDAO().getDonHangByName(kh.getTen());
 
 
